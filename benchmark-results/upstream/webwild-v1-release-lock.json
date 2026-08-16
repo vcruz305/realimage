@@ -1,0 +1,22 @@
+{
+  "protocol": "WebWild v1 sealed evaluation",
+  "manifestSha256": "9cbdff9642d604caeeef19ab61a79785cf300362b53e767acbb1d987ec55675e",
+  "modelId": "Proofmark/proofmark-webwild-v1",
+  "modelSha256": "b1344dc8dabf2be85fb7862d6f169681767a1ac670582cecd445ce1587a60642",
+  "scoringConstantsSha256": "569f2d48870851ec5e9d492862c376afb165ca7cfc1daa1c51e28bc5bb001c49",
+  "displayThreshold": 0.65,
+  "rawCalibrationThreshold": 0.01440293646730881,
+  "sealedOriginals": 2307,
+  "sealedWebVariants": 2307,
+  "acceptance": {
+    "balancedAccuracy": 0.8,
+    "aiRecall": 0.8,
+    "realRecall": 0.9,
+    "webBalancedAccuracy": 0.8,
+    "majorGeneratorRecall": 0.75,
+    "midjourneyRecall": 0.55,
+    "minimumGeneratorRecall": 0.5,
+    "overallBalancedAccuracyLower95": 0.8
+  },
+  "rule": "Model, score mapping, threshold, and acceptance gates are frozen before any sealed image is scored."
+}

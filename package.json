@@ -1,0 +1,43 @@
+{
+  "name": "realimage-local-ai-image-detector",
+  "version": "0.2.4",
+  "private": true,
+  "type": "module",
+  "description": "A private, browser-native AI image detector for Chrome.",
+  "license": "MIT",
+  "scripts": {
+    "model:download": "node scripts/download-model.mjs",
+    "model:verify": "node scripts/verify-model.mjs",
+    "icons:generate": "node scripts/generate-icons.mjs",
+    "dev": "vite",
+    "build": "npm run model:verify && vite build && node scripts/verify-build.mjs",
+    "build:fresh": "npm run model:download && npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "node scripts/e2e-extension.mjs",
+    "fixture": "node scripts/serve-extension-fixture.mjs",
+    "fixture:private": "node scripts/serve-private-browser-benchmark.mjs --root=.bench-data --manifest=.bench-data/private-diagnostic-manifest.json --port=4174",
+    "test:chrome-parity": "vitest run src/offscreen/analysis-debug.test.js tests/installed-chrome-parity.test.js tests/private-browser-benchmark.test.js",
+    "gate:chrome-parity": "node scripts/audit-installed-chrome-parity.mjs",
+    "test:fast-path": "node scripts/audit-fast-path.mjs",
+    "test:policy": "node scripts/check-policy.mjs",
+    "benchmark": "node scripts/benchmark-folder.mjs",
+    "audit:baseline-bias": "node scripts/audit-baseline-bias.mjs",
+    "benchmark:prepare-cifake": "node scripts/prepare-cifake-sample.mjs",
+    "benchmark:prepare-tiny-genimage": "node scripts/prepare-tiny-genimage-sample.mjs",
+    "benchmark:audit-holdout": "node scripts/audit-holdout.mjs",
+    "check": "npm test && npm run test:fast-path && npm run test:policy && npm run build",
+    "package": "npm run check && node scripts/package-extension.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.7.3"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.2.1",
+    "hyparquet": "^1.28.1",
+    "playwright-core": "^1.62.1",
+    "sharp": "^0.35.3",
+    "vite": "^7.1.2",
+    "vitest": "^3.2.4"
+  }
+}

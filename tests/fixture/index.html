@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RealImage local fixture</title>
+    <style>
+      body { margin: 0; padding: 40px; background: #eef2f7; color: #14263f; font-family: system-ui, sans-serif; }
+      main { max-width: 980px; margin: auto; }
+      h1 { font-family: Georgia, serif; font-size: 42px; }
+      .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+      figure { margin: 0; padding: 12px; background: white; border-radius: 16px; box-shadow: 0 10px 28px #19304d1c; }
+      img { display: block; width: 100%; height: auto; border-radius: 10px; }
+      figcaption { padding: 10px 2px 2px; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Local detector fixture</h1>
+      <p>Both images are local. The first contains explicit generator metadata; the second does not.</p>
+      <div class="gallery">
+        <figure><img src="./generator-marked.png" alt="Abstract generated landscape fixture"><figcaption>Generator metadata fixture</figcaption></figure>
+        <figure><img src="./unmarked.png" alt="Simple unmarked landscape fixture"><figcaption>Unmarked fixture</figcaption></figure>
+      </div>
+    </main>
+  </body>
+</html>

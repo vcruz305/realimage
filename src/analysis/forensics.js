@@ -1,0 +1,735 @@
+const AI_MARKERS = [
+  ['stable diffusion', 'Stable Diffusion generator metadata'],
+  ['automatic1111', 'AUTOMATIC1111 generator metadata'],
+  ['comfyui', 'ComfyUI workflow metadata'],
+  ['invokeai', 'InvokeAI generator metadata'],
+  ['midjourney', 'Midjourney generator metadata'],
+  ['dall-e', 'DALL·E generator metadata'],
+  ['dalle', 'DALL·E generator metadata'],
+  ['adobe firefly', 'Adobe Firefly generator metadata'],
+  ['generative fill', 'Generative Fill metadata'],
+  ['fooocus', 'Fooocus generator metadata'],
+  ['novelai', 'NovelAI generator metadata'],
+  ['nai diffusion', 'NovelAI diffusion metadata'],
+  ['flux.1', 'FLUX generator metadata'],
+  ['diffusion model', 'Diffusion generator metadata'],
+  ['positive prompt', 'Generation prompt metadata'],
+  ['negative prompt', 'Generation prompt metadata']
+];
+
+// High-precision declarations are parsed only from their authoritative container
+// property/field. They are deliberately not searched as free text.
+const IPTC_DIGITAL_SOURCE_DECLARATIONS = new Map([
+  ['http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia', {
+    authority: 'iptc', claim: 'generated', label: 'IPTC: created using Generative AI'
+  }],
+  ['http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia', {
+    authority: 'iptc', claim: 'edited', label: 'IPTC: edited using Generative AI'
+  }],
+  ['http://cv.iptc.org/newscodes/digitalsourcetype/compositeSynthetic', {
+    authority: 'iptc', claim: 'composite', label: 'IPTC: composite includes Generative AI elements'
+  }]
+]);
+
+const STANDARD_XMP_HEADER = 'http://ns.adobe.com/xap/1.0/\0';
+const XMP_META_NAMESPACE = 'adobe:ns:meta/';
+const IPTC_XMP_NAMESPACE = 'http://iptc.org/std/Iptc4xmpExt/2008-02-29/';
+const RDF_XMP_NAMESPACE = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+const GOOGLE_AI_EDIT_TEXT = 'Edited with Google AI';
+const GOOGLE_AI_EDIT_BYTES = new TextEncoder().encode(GOOGLE_AI_EDIT_TEXT);
+const PHOTOSHOP_APP13_HEADER = new TextEncoder().encode('Photoshop 3.0\0');
+const PHOTOSHOP_IRB_SIGNATURE = new TextEncoder().encode('8BIM');
+const IPTC_NAA_RESOURCE_ID = 0x0404;
+const MAX_SEARCHABLE_METADATA_BYTES = 1_000_000;
+const MAX_METADATA_BYTES_PER_ENTRY = 256_000;
+const MAX_CONTAINER_ENTRIES = 4_096;
+const MAX_CHUNK_SUMMARY_TYPES = 64;
+const MAX_DECLARATION_VALUES = 64;
+
+const WATERMARK_MARKERS = [
+  ['synthid', 'Embedded SynthID label (watermark not decoded)'],
+  ['invisible-watermark', 'Embedded invisible-watermark label'],
+  ['stegano', 'Embedded steganographic-watermark label']
+];
+
+const PROVENANCE_MARKERS = [
+  ['c2pa', 'C2PA provenance manifest'],
+  ['content credentials', 'Content Credentials manifest'],
+  ['contentcredentials', 'Content Credentials manifest'],
+  ['cai:', 'Content Authenticity Initiative metadata']
+];
+
+export class InvalidDetectorScoreError extends TypeError {
+  constructor(message = 'The local model did not return a valid detector score.') {
+    super(message);
+    this.name = 'InvalidDetectorScoreError';
+    this.code = 'MODEL_OUTPUT_INVALID';
+    this.retryable = false;
+  }
+}
+
+export function inspectEncodedImage(buffer, mimeType = '') {
+  const bytes = new Uint8Array(buffer);
+  const format = detectFormat(bytes, mimeType);
+  const metadata = extractSearchableMetadata(bytes, format);
+  const searchable = metadata.text;
+  const normalized = searchable.toLowerCase();
+  const evidence = [...metadata.declarations];
+  const watermarks = [];
+  const provenance = [];
+
+  // Legacy generator-tool strings remain evidence, but they are not assigned a
+  // source-type claim: for example, Generative Fill can describe an edit rather
+  // than a wholly generated image.
+  collectMarkers(normalized, AI_MARKERS, evidence, 'metadata');
+  collectMarkers(normalized, WATERMARK_MARKERS, watermarks, 'watermark');
+  collectMarkers(normalized, PROVENANCE_MARKERS, provenance, 'provenance');
+
+  const hasPromptPayload = /(?:parameters|prompt|workflow)(?:[\s\x00]*[:=])?/i.test(searchable)
+    && /(?:steps|sampler|seed|cfg scale|model hash)/i.test(searchable);
+  if (hasPromptPayload) {
+    evidence.push({ kind: 'metadata', label: 'Embedded generation parameters', strength: 0.99 });
+  }
+
+  if (format === 'png' && metadata.chunkTypes.includes('caBX')) {
+    provenance.push({ kind: 'provenance', label: 'C2PA PNG assertion box', strength: 0.9 });
+  }
+
+  return {
+    format,
+    byteLength: bytes.byteLength,
+    evidence: uniqueSignals(evidence),
+    watermarks: uniqueSignals(watermarks),
+    provenance: uniqueSignals(provenance),
+    chunks: metadata.chunkTypes,
+    metadataTruncated: metadata.truncated
+  };
+}
+
+export function computePixelSignals(imageData) {
+  const { data, width, height } = imageData;
+  if (!data || width < 8 || height < 8) return { adjustment: 0, signals: [] };
+
+  let residualTotal = 0;
+  let residualSquared = 0;
+  let edgeTotal = 0;
+  let saturationCount = 0;
+  let luminanceEntropy = 0;
+  const histogram = new Uint32Array(32);
+  let samples = 0;
+
+  for (let y = 1; y < height - 1; y += 2) {
+    for (let x = 1; x < width - 1; x += 2) {
+      const index = (y * width + x) * 4;
+      const rgb = [data[index], data[index + 1], data[index + 2]];
+      const luminance = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
+      histogram[Math.min(31, Math.floor(luminance / 8))] += 1;
+      const max = Math.max(...rgb);
+      const min = Math.min(...rgb);
+      if (max - min > 150 && max > 210) saturationCount += 1;
+
+      const left = luminanceAt(data, width, x - 1, y);
+      const right = luminanceAt(data, width, x + 1, y);
+      const up = luminanceAt(data, width, x, y - 1);
+      const down = luminanceAt(data, width, x, y + 1);
+      const localMean = (left + right + up + down) / 4;
+      const residual = Math.abs(luminance - localMean);
+      residualTotal += residual;
+      residualSquared += residual * residual;
+      edgeTotal += Math.abs(right - left) + Math.abs(down - up);
+      samples += 1;
+    }
+  }
+
+  for (const count of histogram) {
+    if (!count) continue;
+    const probability = count / samples;
+    luminanceEntropy -= probability * Math.log2(probability);
+  }
+
+  const residualMean = residualTotal / samples;
+  const residualVariance = residualSquared / samples - residualMean * residualMean;
+  const edgeDensity = edgeTotal / samples / 510;
+  const saturation = saturationCount / samples;
+  const signals = [];
+  let adjustment = 0;
+
+  // These weak, bounded signals only calibrate the learned detector. They never
+  // make a decision by themselves because compression and editing can mimic them.
+  if (residualMean < 4.2 && edgeDensity > 0.055) {
+    adjustment += 0.025;
+    signals.push({ kind: 'pixels', label: 'Unusually smooth high-detail texture', strength: 0.25 });
+  }
+  if (residualVariance > 230 && edgeDensity < 0.045) {
+    adjustment += 0.02;
+    signals.push({ kind: 'pixels', label: 'Irregular synthetic texture residual', strength: 0.2 });
+  }
+  if (saturation > 0.13 && luminanceEntropy > 4.4) {
+    adjustment += 0.015;
+    signals.push({ kind: 'pixels', label: 'High chroma distribution', strength: 0.15 });
+  }
+  if (residualMean > 13 && edgeDensity > 0.12) {
+    adjustment -= 0.02;
+    signals.push({ kind: 'pixels', label: 'Camera-like sensor texture', strength: 0.2 });
+  }
+
+  return {
+    adjustment: clamp(adjustment, -0.04, 0.06),
+    signals,
+    metrics: { residualMean, residualVariance, edgeDensity, saturation, luminanceEntropy }
+  };
+}
+
+export function fuseEvidence(modelAiScore, encoded, pixel) {
+  let score = requireProbability(modelAiScore, 'model AI score');
+  score = sigmoid(logit(score) + (pixel?.adjustment || 0) * 4);
+
+  const hasGeneratorMetadata = encoded.evidence.length > 0;
+  if (hasGeneratorMetadata) score = Math.max(score, 0.985);
+
+  return clamp(score, 0, 1);
+}
+
+// Preserve the bounty's visible 65% decision line while mapping it to the
+// operating point selected on clean and web-transformed calibration images.
+// This transform is monotonic, so it changes calibration but never ranking.
+// Default matches MODEL.calibration.rawThreshold for the broad-v1-modern-v1
+// MLP head (.bench-data/realimage-broad-v1/candidate-mlp-modern-v1/training_report.json);
+// production code always passes MODEL.calibration explicitly (see
+// offscreen.js), so this default only matters for direct/test callers.
+export function calibrateDecisionScore(score, rawThreshold = 0.646794855594635, displayThreshold = 0.65) {
+  const bounded = requireProbability(score, 'detector score');
+  const rawOperatingPoint = requireOpenProbability(rawThreshold, 'raw operating point');
+  const visibleOperatingPoint = requireOpenProbability(displayThreshold, 'visible operating point');
+  return clamp(sigmoid(logit(bounded) - logit(rawOperatingPoint) + logit(visibleOperatingPoint)), 0, 1);
+}
+
+function requireProbability(value, label) {
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || value > 1) {
+    throw new InvalidDetectorScoreError(`The ${label} is not a finite probability.`);
+  }
+  return value;
+}
+
+function requireOpenProbability(value, label) {
+  const probability = requireProbability(value, label);
+  if (probability === 0 || probability === 1) {
+    throw new InvalidDetectorScoreError(`The ${label} must be between zero and one.`);
+  }
+  return probability;
+}
+
+function detectFormat(bytes, mimeType) {
+  if (bytes[0] === 0x89 && ascii(bytes, 1, 4) === 'PNG') return 'png';
+  if (bytes[0] === 0xff && bytes[1] === 0xd8) return 'jpeg';
+  if (ascii(bytes, 0, 4) === 'RIFF' && ascii(bytes, 8, 12) === 'WEBP') return 'webp';
+  if (ascii(bytes, 4, 12).includes('ftyp')) return 'avif';
+  return mimeType.split('/')[1]?.toLowerCase() || 'unknown';
+}
+
+function extractSearchableMetadata(bytes, format) {
+  const decoder = new TextDecoder('latin1');
+  const parts = [];
+  const declarations = [];
+  const chunkTypes = [];
+  const seenChunkTypes = new Set();
+  const iptcDigitalSourceValues = [];
+  let iptcCreditFields = 0;
+  let googleAiEditFields = 0;
+  let declarationScanIncomplete = false;
+  let remaining = MAX_SEARCHABLE_METADATA_BYTES;
+  let truncated = false;
+  const append = (start, length) => {
+    if (length <= 0 || start >= bytes.length) return;
+    if (remaining <= 0) {
+      truncated = true;
+      return;
+    }
+    const boundedLength = Math.min(length, MAX_METADATA_BYTES_PER_ENTRY, remaining, bytes.length - start);
+    if (boundedLength < length) truncated = true;
+    parts.push(decoder.decode(bytes.subarray(start, start + boundedLength)));
+    remaining -= boundedLength;
+  };
+  const addChunkType = (type) => {
+    if (seenChunkTypes.has(type) || chunkTypes.length >= MAX_CHUNK_SUMMARY_TYPES) return;
+    seenChunkTypes.add(type);
+    chunkTypes.push(type);
+  };
+
+  // Generator/provenance labels live in container metadata, not compressed
+  // pixel payloads. Scanning several megabytes of entropy-coded pixels added
+  // tens of milliseconds and large temporary strings per image. Keep small
+  // header/trailer fallbacks for malformed-but-readable files, then scan the
+  // metadata-bearing segments explicitly.
+  if (format === 'png') {
+    const scan = scanPngChunks(bytes, ({ type, start, length }) => {
+      addChunkType(type);
+      if (['tEXt', 'iTXt', 'zTXt', 'eXIf', 'caBX'].includes(type)) append(start, length);
+    });
+    truncated ||= scan.truncated;
+  } else if (format === 'jpeg' && bytes[0] === 0xff && bytes[1] === 0xd8) {
+    const scan = scanJpegSegments(bytes, ({ marker, start, length }) => {
+      append(start, length);
+      if (marker === 0xe1 || marker === 0xed) {
+        const segmentLength = Math.min(length, MAX_METADATA_BYTES_PER_ENTRY, bytes.length - start);
+        const segmentText = decoder.decode(bytes.subarray(start, start + segmentLength));
+        if (marker === 0xe1 && segmentText.startsWith(STANDARD_XMP_HEADER)) {
+          const extracted = extractIptcDigitalSourceValues(
+            segmentText.slice(STANDARD_XMP_HEADER.length),
+            Math.max(0, MAX_DECLARATION_VALUES - iptcDigitalSourceValues.length)
+          );
+          iptcDigitalSourceValues.push(...extracted.values);
+          declarationScanIncomplete ||= extracted.truncated;
+          truncated ||= extracted.truncated;
+        } else if (marker === 0xed) {
+          const extracted = inspectIptcIimGoogleAiEditField(bytes, start, segmentLength);
+          iptcCreditFields += extracted.creditFields;
+          googleAiEditFields += extracted.googleAiEditFields;
+          declarationScanIncomplete ||= extracted.truncated;
+          truncated ||= extracted.truncated;
+        }
+      }
+    });
+    declarationScanIncomplete ||= scan.truncated;
+    truncated ||= scan.truncated;
+  } else if (format === 'webp' && ascii(bytes, 0, 4) === 'RIFF' && ascii(bytes, 8, 12) === 'WEBP') {
+    const scan = scanWebpChunks(bytes, ({ type, start, length }) => {
+      addChunkType(type);
+      if (['EXIF', 'XMP ', 'ICCP', 'META'].includes(type)) append(start, length);
+    });
+    truncated ||= scan.truncated;
+  } else {
+    // AVIF box layouts and malformed-but-browser-decodable files vary. Keep a
+    // small bounded edge scan rather than falling back to the entire payload.
+    const edgeLength = Math.min(bytes.length, 64 * 1024);
+    append(0, edgeLength);
+    if (bytes.length > edgeLength) append(Math.max(edgeLength, bytes.length - edgeLength), edgeLength);
+  }
+  const uniqueIptcValues = [...new Set(iptcDigitalSourceValues)];
+  if (!declarationScanIncomplete && uniqueIptcValues.length === 1) {
+    const declaration = IPTC_DIGITAL_SOURCE_DECLARATIONS.get(uniqueIptcValues[0]);
+    if (declaration) declarations.push({ kind: 'metadata', strength: 0.98, ...declaration });
+  }
+  if (!declarationScanIncomplete && iptcCreditFields === 1 && googleAiEditFields === 1) {
+    declarations.push({
+      kind: 'metadata',
+      label: 'Self-declared Google AI edit metadata',
+      strength: 0.98,
+      authority: 'self-declared',
+      claim: 'edited'
+    });
+  }
+
+  return {
+    text: parts.join('\n'),
+    declarations: uniqueSignals(declarations),
+    chunkTypes,
+    truncated
+  };
+}
+
+function scanPngChunks(bytes, visit) {
+  if (bytes.length < 8 || bytes[0] !== 0x89 || ascii(bytes, 1, 4) !== 'PNG') return { truncated: false };
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  let entries = 0;
+  let offset = 8;
+  while (offset + 12 <= bytes.length) {
+    const length = view.getUint32(offset, false);
+    const type = ascii(bytes, offset + 4, offset + 8);
+    if (!/^[A-Za-z]{4}$/.test(type) || length > bytes.length - offset - 12) return { truncated: true };
+    entries += 1;
+    if (entries > MAX_CONTAINER_ENTRIES) return { truncated: true };
+    visit({ type, start: offset + 8, length });
+    offset += length + 12;
+    if (type === 'IEND') return { truncated: length !== 0 };
+  }
+  return { truncated: true };
+}
+
+function scanJpegSegments(bytes, visit) {
+  if (bytes[0] !== 0xff || bytes[1] !== 0xd8) return { truncated: false };
+  let entries = 0;
+  let offset = 2;
+  while (offset + 1 < bytes.length) {
+    if (bytes[offset] !== 0xff) return { truncated: true };
+    while (offset < bytes.length && bytes[offset] === 0xff) offset += 1;
+    if (offset >= bytes.length) return { truncated: true };
+    const marker = bytes[offset];
+    offset += 1;
+    entries += 1;
+    if (entries > MAX_CONTAINER_ENTRIES) return { truncated: true };
+    if (marker === 0xd9 || marker === 0xda) return { truncated: false };
+    if (marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) continue;
+    if (offset + 2 > bytes.length) return { truncated: true };
+    const length = (bytes[offset] << 8) | bytes[offset + 1];
+    if (length < 2 || length > bytes.length - offset) return { truncated: true };
+    if ((marker >= 0xe0 && marker <= 0xef) || marker === 0xfe) {
+      visit({ marker, start: offset + 2, length: length - 2 });
+    }
+    offset += length;
+  }
+  return { truncated: true };
+}
+
+function scanWebpChunks(bytes, visit) {
+  if (bytes.length < 12 || ascii(bytes, 0, 4) !== 'RIFF' || ascii(bytes, 8, 12) !== 'WEBP') return { truncated: false };
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const declaredEnd = view.getUint32(4, true) + 8;
+  if (declaredEnd !== bytes.length) return { truncated: true };
+  let entries = 0;
+  let offset = 12;
+  while (offset < declaredEnd) {
+    if (offset + 8 > declaredEnd) return { truncated: true };
+    const type = ascii(bytes, offset, offset + 4);
+    const length = view.getUint32(offset + 4, true);
+    const start = offset + 8;
+    const paddedLength = length + (length & 1);
+    if (paddedLength > declaredEnd - start) return { truncated: true };
+    entries += 1;
+    if (entries > MAX_CONTAINER_ENTRIES) return { truncated: true };
+    visit({ type, start, length });
+    offset = start + paddedLength;
+  }
+  return { truncated: false };
+}
+
+function extractIptcDigitalSourceValues(xmp, limit) {
+  const values = [];
+  const stack = [];
+  let activeProperty;
+  let offset = 0;
+  let tags = 0;
+  let truncated = false;
+  let rootSeen = false;
+  let rootClosed = false;
+  let topLevelRdfCount = 0;
+
+  const pushValue = (value) => {
+    if (values.length >= limit) {
+      truncated = true;
+      return;
+    }
+    values.push(value.trim());
+  };
+
+  while (offset < xmp.length && !truncated) {
+    const opening = xmp.indexOf('<', offset);
+    const textEnd = opening === -1 ? xmp.length : opening;
+    if (activeProperty && stack.length === activeProperty.depth) {
+      activeProperty.text += xmp.slice(offset, textEnd);
+    } else if (
+      (stack.length === 0 || stack.at(-1)?.isXmpRoot || stack.at(-1)?.isTopLevelRdf || stack.at(-1)?.isImageDescription)
+      && xmp.slice(offset, textEnd).trim() !== ''
+    ) {
+      truncated = true;
+      break;
+    }
+    if (opening === -1) break;
+
+    if (xmp.startsWith('<!--', opening)) {
+      const end = xmp.indexOf('-->', opening + 4);
+      if (end === -1) { truncated = true; break; }
+      offset = end + 3;
+      continue;
+    }
+    if (xmp.startsWith('<![CDATA[', opening)) {
+      const end = xmp.indexOf(']]>', opening + 9);
+      if (end === -1) { truncated = true; break; }
+      if (stack.length === 0) { truncated = true; break; }
+      if (
+        (stack.at(-1)?.isXmpRoot || stack.at(-1)?.isTopLevelRdf || stack.at(-1)?.isImageDescription)
+        && xmp.slice(opening + 9, end).trim() !== ''
+      ) {
+        truncated = true;
+        break;
+      }
+      offset = end + 3;
+      continue;
+    }
+    if (xmp.startsWith('<?', opening)) {
+      const end = xmp.indexOf('?>', opening + 2);
+      if (end === -1) { truncated = true; break; }
+      offset = end + 2;
+      continue;
+    }
+    if (xmp.startsWith('<!', opening)) {
+      truncated = true;
+      break;
+    }
+
+    const tagEnd = findXmlTagEnd(xmp, opening + 1);
+    if (tagEnd === -1) { truncated = true; break; }
+    const rawTag = xmp.slice(opening, tagEnd + 1);
+    tags += 1;
+    if (tags > MAX_CONTAINER_ENTRIES) { truncated = true; break; }
+
+    if (rawTag.startsWith('</')) {
+      const closing = /^<\/([A-Za-z_][A-Za-z0-9_.:-]*)\s*>$/.exec(rawTag);
+      const frame = stack.at(-1);
+      if (!closing || !frame || closing[1] !== frame.name) { truncated = true; break; }
+      if (activeProperty && activeProperty.depth === stack.length && frame.name === 'Iptc4xmpExt:DigitalSourceType') {
+        pushValue(activeProperty.text);
+        activeProperty = undefined;
+      }
+      stack.pop();
+      if (stack.length === 0) rootClosed = true;
+      offset = tagEnd + 1;
+      continue;
+    }
+
+    const parsed = parseXmlStartTag(rawTag);
+    if (!parsed) { truncated = true; break; }
+    const parent = stack.at(-1);
+    const namespaces = {
+      x: parsed.attributes.get('xmlns:x') ?? parent?.namespaces.x,
+      iptc: parsed.attributes.get('xmlns:Iptc4xmpExt') ?? parent?.namespaces.iptc,
+      rdf: parsed.attributes.get('xmlns:rdf') ?? parent?.namespaces.rdf
+    };
+    if (activeProperty) { truncated = true; break; }
+
+    if (stack.length === 0) {
+      if (
+        rootSeen
+        || rootClosed
+        || parsed.name !== 'x:xmpmeta'
+        || namespaces.x !== XMP_META_NAMESPACE
+      ) {
+        truncated = true;
+        break;
+      }
+      rootSeen = true;
+    }
+
+    const isTopLevelRdf = parsed.name === 'rdf:RDF'
+      && parent?.name === 'x:xmpmeta'
+      && stack.length === 1
+      && namespaces.rdf === RDF_XMP_NAMESPACE;
+    if (parent?.isXmpRoot) {
+      if (!isTopLevelRdf || topLevelRdfCount !== 0) {
+        truncated = true;
+        break;
+      }
+      topLevelRdfCount += 1;
+    }
+    if (parent?.isTopLevelRdf && parsed.name !== 'rdf:Description') {
+      truncated = true;
+      break;
+    }
+    const isImageDescription = parsed.name === 'rdf:Description'
+      && parent?.isTopLevelRdf === true
+      && namespaces.rdf === RDF_XMP_NAMESPACE
+      && namespaces.iptc === IPTC_XMP_NAMESPACE
+      && parsed.attributes.get('rdf:about') === ''
+      && [...parsed.attributes.keys()].every((name) => !name.startsWith('rdf:') || name === 'rdf:about');
+
+    if (
+      isImageDescription
+      && parsed.attributes.has('Iptc4xmpExt:DigitalSourceType')
+    ) {
+      pushValue(parsed.attributes.get('Iptc4xmpExt:DigitalSourceType'));
+    }
+
+    if (
+      parsed.name === 'Iptc4xmpExt:DigitalSourceType'
+      && parent?.isImageDescription === true
+      && namespaces.iptc === IPTC_XMP_NAMESPACE
+      && [...parsed.attributes.keys()].every((name) => name === 'xmlns' || name.startsWith('xmlns:'))
+      && !parsed.selfClosing
+    ) {
+      activeProperty = { depth: stack.length + 1, text: '' };
+    }
+
+    if (!parsed.selfClosing) {
+      stack.push({
+        name: parsed.name,
+        namespaces,
+        isXmpRoot: stack.length === 0,
+        isTopLevelRdf,
+        isImageDescription
+      });
+    } else if (stack.length === 0) {
+      rootClosed = true;
+    }
+    offset = tagEnd + 1;
+  }
+
+  if (!rootSeen || !rootClosed || topLevelRdfCount !== 1 || stack.length !== 0 || activeProperty) truncated = true;
+  return { values, truncated };
+}
+
+function findXmlTagEnd(xml, start) {
+  let quote;
+  for (let index = start; index < xml.length; index += 1) {
+    const character = xml[index];
+    if (quote) {
+      if (character === quote) quote = undefined;
+    } else if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === '>') {
+      return index;
+    }
+  }
+  return -1;
+}
+
+function parseXmlStartTag(rawTag) {
+  const opening = /^<([A-Za-z_][A-Za-z0-9_.:-]*)([\s\S]*?)(\/?)>$/.exec(rawTag);
+  if (!opening) return undefined;
+  const attributes = new Map();
+  const source = opening[2];
+  let offset = 0;
+  while (offset < source.length) {
+    while (/\s/.test(source[offset] || '')) offset += 1;
+    if (offset >= source.length) break;
+    const nameMatch = /^[A-Za-z_][A-Za-z0-9_.:-]*/.exec(source.slice(offset));
+    if (!nameMatch) return undefined;
+    const name = nameMatch[0];
+    offset += name.length;
+    while (/\s/.test(source[offset] || '')) offset += 1;
+    if (source[offset] !== '=') return undefined;
+    offset += 1;
+    while (/\s/.test(source[offset] || '')) offset += 1;
+    const quote = source[offset];
+    if (quote !== '"' && quote !== "'") return undefined;
+    const end = source.indexOf(quote, offset + 1);
+    if (end === -1 || attributes.has(name)) return undefined;
+    attributes.set(name, source.slice(offset + 1, end));
+    offset = end + 1;
+  }
+  return { name: opening[1], attributes, selfClosing: opening[3] === '/' };
+}
+
+function inspectIptcIimGoogleAiEditField(bytes, start, length) {
+  const end = Math.min(bytes.length, start + length);
+  let creditFields = 0;
+  let googleAiEditFields = 0;
+  let entries = 0;
+  let offset = start;
+
+  if (end - start < PHOTOSHOP_APP13_HEADER.length) return { creditFields: 0, googleAiEditFields: 0, truncated: false };
+  if (!equalBytes(bytes, offset, PHOTOSHOP_APP13_HEADER)) return { creditFields: 0, googleAiEditFields: 0, truncated: false };
+  offset += PHOTOSHOP_APP13_HEADER.length;
+
+  while (offset < end) {
+    entries += 1;
+    if (entries > MAX_CONTAINER_ENTRIES) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    if (end - offset < 12 || !equalBytes(bytes, offset, PHOTOSHOP_IRB_SIGNATURE)) {
+      return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    }
+    offset += PHOTOSHOP_IRB_SIGNATURE.length;
+    const resourceId = (bytes[offset] << 8) | bytes[offset + 1];
+    offset += 2;
+
+    const nameLength = bytes[offset];
+    offset += 1;
+    if (nameLength > end - offset) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    offset += nameLength;
+    if ((nameLength + 1) % 2 !== 0) {
+      if (offset >= end || bytes[offset] !== 0) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+      offset += 1;
+    }
+    if (end - offset < 4) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    const resourceLength = readUint32BigEndian(bytes, offset);
+    offset += 4;
+    if (resourceLength > end - offset) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    const resourceEnd = offset + resourceLength;
+    if (resourceId === IPTC_NAA_RESOURCE_ID) {
+      const iim = inspectIptcIimFields(bytes, offset, resourceEnd);
+      if (iim.truncated) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+      creditFields += iim.creditFields;
+      googleAiEditFields += iim.googleAiEditFields;
+    }
+    offset = resourceEnd;
+    if (resourceLength % 2 !== 0) {
+      if (offset >= end || bytes[offset] !== 0) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+      offset += 1;
+    }
+  }
+
+  return { creditFields, googleAiEditFields, truncated: false };
+}
+
+function inspectIptcIimFields(bytes, start, end) {
+  let creditFields = 0;
+  let googleAiEditFields = 0;
+  let entries = 0;
+  let offset = start;
+  while (offset < end) {
+    if (bytes[offset] === 0 && allBytesEqual(bytes, offset, end, 0)) break;
+    if (bytes[offset] !== 0x1c || offset + 5 > end) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    const record = bytes[offset + 1];
+    const dataset = bytes[offset + 2];
+    const lengthWord = (bytes[offset + 3] << 8) | bytes[offset + 4];
+    if ((lengthWord & 0x8000) !== 0) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    const valueStart = offset + 5;
+    const valueEnd = valueStart + lengthWord;
+    if (valueEnd > end) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    entries += 1;
+    if (entries > MAX_CONTAINER_ENTRIES) return { creditFields: 0, googleAiEditFields: 0, truncated: true };
+    if (record === 2 && dataset === 110) {
+      creditFields += 1;
+      if (
+        lengthWord === GOOGLE_AI_EDIT_BYTES.length
+        && equalBytes(bytes, valueStart, GOOGLE_AI_EDIT_BYTES)
+      ) {
+        googleAiEditFields += 1;
+      }
+    }
+    offset = valueEnd;
+  }
+  return { creditFields, googleAiEditFields, truncated: false };
+}
+
+function readUint32BigEndian(bytes, offset) {
+  return ((bytes[offset] * 0x1000000)
+    + (bytes[offset + 1] << 16)
+    + (bytes[offset + 2] << 8)
+    + bytes[offset + 3]) >>> 0;
+}
+
+function allBytesEqual(bytes, start, end, expected) {
+  for (let index = start; index < end; index += 1) {
+    if (bytes[index] !== expected) return false;
+  }
+  return true;
+}
+
+function equalBytes(bytes, start, expected) {
+  for (let index = 0; index < expected.length; index += 1) {
+    if (bytes[start + index] !== expected[index]) return false;
+  }
+  return true;
+}
+
+function collectMarkers(haystack, markers, target, kind, details = {}) {
+  for (const [needle, label] of markers) {
+    if (haystack.includes(needle)) {
+      target.push({ kind, label, strength: kind === 'provenance' ? 0.8 : 0.98, ...details });
+    }
+  }
+}
+
+function uniqueSignals(signals) {
+  return [...new Map(signals.map((signal) => [signal.label, signal])).values()];
+}
+
+function ascii(bytes, start, end) {
+  return String.fromCharCode(...bytes.subarray(start, end));
+}
+
+function luminanceAt(data, width, x, y) {
+  const index = (y * width + x) * 4;
+  return 0.2126 * data[index] + 0.7152 * data[index + 1] + 0.0722 * data[index + 2];
+}
+
+function logit(value) {
+  return Math.log(value / (1 - value));
+}
+
+function sigmoid(value) {
+  return 1 / (1 + Math.exp(-value));
+}
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}

@@ -1,0 +1,971 @@
+{
+  "seed": 323,
+  "trainingImages": 4614,
+  "trainingFeatureRows": 9228,
+  "calibrationImages": 1104,
+  "developmentImages": 2499,
+  "selected": {
+    "hidden": 32,
+    "weightDecay": 0.01,
+    "objective": 0.9363708566853483,
+    "eligible": true,
+    "calibration": {
+      "threshold": 0.21723419427871704,
+      "balancedAccuracy": 0.9673844537815126,
+      "aiRecall": 0.9678571428571429,
+      "realRecall": 0.9669117647058824,
+      "minimumDomainRecall": 0.9357142857142857,
+      "domains": [
+        {
+          "domain": "flux-reason",
+          "label": "ai",
+          "recall": 0.9357142857142857,
+          "total": 280
+        },
+        {
+          "domain": "laion-aesthetic",
+          "label": "real",
+          "recall": 0.9357142857142857,
+          "total": 280
+        },
+        {
+          "domain": "synthetic-characters",
+          "label": "ai",
+          "recall": 1.0,
+          "total": 280
+        },
+        {
+          "domain": "visual-logic",
+          "label": "real",
+          "recall": 1.0,
+          "total": 264
+        }
+      ]
+    },
+    "development": {
+      "threshold": 0.21723419427871704,
+      "balancedAccuracy": 0.9363708566853483,
+      "aiRecall": 0.9271417133706965,
+      "realRecall": 0.9456,
+      "minimumDomainRecall": 0.768361581920904,
+      "domains": [
+        {
+          "domain": "adm",
+          "label": "ai",
+          "recall": 0.768361581920904,
+          "total": 177
+        },
+        {
+          "domain": "biggan",
+          "label": "ai",
+          "recall": 0.9772727272727273,
+          "total": 176
+        },
+        {
+          "domain": "glide",
+          "label": "ai",
+          "recall": 0.9392265193370166,
+          "total": 181
+        },
+        {
+          "domain": "midjourney",
+          "label": "ai",
+          "recall": 0.8789473684210526,
+          "total": 190
+        },
+        {
+          "domain": "real",
+          "label": "real",
+          "recall": 0.9456,
+          "total": 1250
+        },
+        {
+          "domain": "sd15",
+          "label": "ai",
+          "recall": 0.9712643678160919,
+          "total": 174
+        },
+        {
+          "domain": "vqdm",
+          "label": "ai",
+          "recall": 0.9666666666666667,
+          "total": 180
+        },
+        {
+          "domain": "wukong",
+          "label": "ai",
+          "recall": 0.9941520467836257,
+          "total": 171
+        }
+      ]
+    }
+  },
+  "candidates": [
+    {
+      "hidden": 16,
+      "weightDecay": 0.01,
+      "objective": -0.07163522818254608,
+      "eligible": false,
+      "calibration": {
+        "threshold": 0.4814160168170929,
+        "balancedAccuracy": 0.9691964285714285,
+        "aiRecall": 0.9696428571428571,
+        "realRecall": 0.96875,
+        "minimumDomainRecall": 0.9392857142857143,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9392857142857143,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9428571428571428,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 0.9962121212121212,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.4814160168170929,
+        "balancedAccuracy": 0.9283647718174539,
+        "aiRecall": 0.911929543634908,
+        "realRecall": 0.9448,
+        "minimumDomainRecall": 0.7401129943502824,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.7401129943502824,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9659090909090909,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9116022099447514,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8526315789473684,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9448,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9597701149425287,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9666666666666667,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    },
+    {
+      "hidden": 16,
+      "weightDecay": 0.003,
+      "objective": -0.07163522818254608,
+      "eligible": false,
+      "calibration": {
+        "threshold": 0.4799383878707886,
+        "balancedAccuracy": 0.9691964285714285,
+        "aiRecall": 0.9696428571428571,
+        "realRecall": 0.96875,
+        "minimumDomainRecall": 0.9392857142857143,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9392857142857143,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9428571428571428,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 0.9962121212121212,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.4799383878707886,
+        "balancedAccuracy": 0.9283647718174539,
+        "aiRecall": 0.911929543634908,
+        "realRecall": 0.9448,
+        "minimumDomainRecall": 0.7401129943502824,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.7401129943502824,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9659090909090909,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9116022099447514,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8526315789473684,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9448,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9597701149425287,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9666666666666667,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    },
+    {
+      "hidden": 16,
+      "weightDecay": 0.001,
+      "objective": -0.07163522818254608,
+      "eligible": false,
+      "calibration": {
+        "threshold": 0.4789338707923889,
+        "balancedAccuracy": 0.9691964285714285,
+        "aiRecall": 0.9696428571428571,
+        "realRecall": 0.96875,
+        "minimumDomainRecall": 0.9392857142857143,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9392857142857143,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9428571428571428,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 0.9962121212121212,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.4789338707923889,
+        "balancedAccuracy": 0.9283647718174539,
+        "aiRecall": 0.911929543634908,
+        "realRecall": 0.9448,
+        "minimumDomainRecall": 0.7401129943502824,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.7401129943502824,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9659090909090909,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9116022099447514,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8526315789473684,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9448,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9597701149425287,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9666666666666667,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    },
+    {
+      "hidden": 32,
+      "weightDecay": 0.01,
+      "objective": 0.9363708566853483,
+      "eligible": true,
+      "calibration": {
+        "threshold": 0.21723419427871704,
+        "balancedAccuracy": 0.9673844537815126,
+        "aiRecall": 0.9678571428571429,
+        "realRecall": 0.9669117647058824,
+        "minimumDomainRecall": 0.9357142857142857,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 1.0,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.21723419427871704,
+        "balancedAccuracy": 0.9363708566853483,
+        "aiRecall": 0.9271417133706965,
+        "realRecall": 0.9456,
+        "minimumDomainRecall": 0.768361581920904,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.768361581920904,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9772727272727273,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9392265193370166,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8789473684210526,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9456,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9712643678160919,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9666666666666667,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    },
+    {
+      "hidden": 32,
+      "weightDecay": 0.003,
+      "objective": 0.9359708566853482,
+      "eligible": true,
+      "calibration": {
+        "threshold": 0.21542493999004364,
+        "balancedAccuracy": 0.9673844537815126,
+        "aiRecall": 0.9678571428571429,
+        "realRecall": 0.9669117647058824,
+        "minimumDomainRecall": 0.9357142857142857,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 1.0,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.21542493999004364,
+        "balancedAccuracy": 0.9359708566853482,
+        "aiRecall": 0.9271417133706965,
+        "realRecall": 0.9448,
+        "minimumDomainRecall": 0.768361581920904,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.768361581920904,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9772727272727273,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9392265193370166,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8789473684210526,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9448,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9712643678160919,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9666666666666667,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    },
+    {
+      "hidden": 32,
+      "weightDecay": 0.001,
+      "objective": 0.9359708566853482,
+      "eligible": true,
+      "calibration": {
+        "threshold": 0.21523135900497437,
+        "balancedAccuracy": 0.9673844537815126,
+        "aiRecall": 0.9678571428571429,
+        "realRecall": 0.9669117647058824,
+        "minimumDomainRecall": 0.9357142857142857,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 1.0,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.21523135900497437,
+        "balancedAccuracy": 0.9359708566853482,
+        "aiRecall": 0.9271417133706965,
+        "realRecall": 0.9448,
+        "minimumDomainRecall": 0.768361581920904,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.768361581920904,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9772727272727273,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9392265193370166,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8789473684210526,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9448,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9712643678160919,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9666666666666667,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    },
+    {
+      "hidden": 64,
+      "weightDecay": 0.01,
+      "objective": -0.0684345876701361,
+      "eligible": false,
+      "calibration": {
+        "threshold": 0.38235458731651306,
+        "balancedAccuracy": 0.9664653361344537,
+        "aiRecall": 0.9678571428571429,
+        "realRecall": 0.9650735294117647,
+        "minimumDomainRecall": 0.9357142857142857,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 0.9962121212121212,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.38235458731651306,
+        "balancedAccuracy": 0.9315654123298639,
+        "aiRecall": 0.9135308246597278,
+        "realRecall": 0.9496,
+        "minimumDomainRecall": 0.7457627118644068,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.7457627118644068,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9602272727272727,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9226519337016574,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8421052631578947,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9496,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9712643678160919,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9666666666666667,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    },
+    {
+      "hidden": 64,
+      "weightDecay": 0.003,
+      "objective": 0.9319657325860689,
+      "eligible": true,
+      "calibration": {
+        "threshold": 0.3751327097415924,
+        "balancedAccuracy": 0.9664653361344537,
+        "aiRecall": 0.9678571428571429,
+        "realRecall": 0.9650735294117647,
+        "minimumDomainRecall": 0.9357142857142857,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 0.9962121212121212,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.3751327097415924,
+        "balancedAccuracy": 0.9319657325860689,
+        "aiRecall": 0.9143314651721377,
+        "realRecall": 0.9496,
+        "minimumDomainRecall": 0.751412429378531,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.751412429378531,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9602272727272727,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9226519337016574,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8421052631578947,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9496,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9712643678160919,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9666666666666667,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    },
+    {
+      "hidden": 64,
+      "weightDecay": 0.001,
+      "objective": 0.9315654123298639,
+      "eligible": true,
+      "calibration": {
+        "threshold": 0.3732624650001526,
+        "balancedAccuracy": 0.9664653361344537,
+        "aiRecall": 0.9678571428571429,
+        "realRecall": 0.9650735294117647,
+        "minimumDomainRecall": 0.9357142857142857,
+        "domains": [
+          {
+            "domain": "flux-reason",
+            "label": "ai",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "laion-aesthetic",
+            "label": "real",
+            "recall": 0.9357142857142857,
+            "total": 280
+          },
+          {
+            "domain": "synthetic-characters",
+            "label": "ai",
+            "recall": 1.0,
+            "total": 280
+          },
+          {
+            "domain": "visual-logic",
+            "label": "real",
+            "recall": 0.9962121212121212,
+            "total": 264
+          }
+        ]
+      },
+      "development": {
+        "threshold": 0.3732624650001526,
+        "balancedAccuracy": 0.9315654123298639,
+        "aiRecall": 0.9135308246597278,
+        "realRecall": 0.9496,
+        "minimumDomainRecall": 0.751412429378531,
+        "domains": [
+          {
+            "domain": "adm",
+            "label": "ai",
+            "recall": 0.751412429378531,
+            "total": 177
+          },
+          {
+            "domain": "biggan",
+            "label": "ai",
+            "recall": 0.9602272727272727,
+            "total": 176
+          },
+          {
+            "domain": "glide",
+            "label": "ai",
+            "recall": 0.9226519337016574,
+            "total": 181
+          },
+          {
+            "domain": "midjourney",
+            "label": "ai",
+            "recall": 0.8421052631578947,
+            "total": 190
+          },
+          {
+            "domain": "real",
+            "label": "real",
+            "recall": 0.9496,
+            "total": 1250
+          },
+          {
+            "domain": "sd15",
+            "label": "ai",
+            "recall": 0.9712643678160919,
+            "total": 174
+          },
+          {
+            "domain": "vqdm",
+            "label": "ai",
+            "recall": 0.9611111111111111,
+            "total": 180
+          },
+          {
+            "domain": "wukong",
+            "label": "ai",
+            "recall": 0.9941520467836257,
+            "total": 171
+          }
+        ]
+      }
+    }
+  ],
+  "modelSha256": "ed17ceb332bef84d0adcc2fa537eef85ed3ac6fb32c30393c326321fbbe54683",
+  "modelBytes": 24031833
+}

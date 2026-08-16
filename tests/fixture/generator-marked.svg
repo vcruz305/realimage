@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+  <metadata>ComfyUI workflow; positive prompt: misty futuristic valley; Steps: 30; Sampler: Euler; Seed: 42; Model hash: proofmark-fixture; stable diffusion</metadata>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2b5278"/><stop offset="1" stop-color="#dca88b"/></linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#183a4b"/><stop offset="1" stop-color="#4d6c60"/></linearGradient>
+  </defs>
+  <rect width="640" height="420" fill="url(#sky)"/>
+  <circle cx="470" cy="105" r="52" fill="#ffe6b0" opacity=".9"/>
+  <path d="M0 290L120 190l92 81 98-126 115 128 88-92 127 125v114H0z" fill="#274a59"/>
+  <path d="M0 332c92-53 165-42 243-9 103 44 203-43 397-17v114H0z" fill="url(#land)"/>
+  <path d="M300 420c18-64 65-122 110-161-12 63-34 113-48 161z" fill="#c5e4df" opacity=".62"/>
+</svg>

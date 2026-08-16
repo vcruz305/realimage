@@ -1,0 +1,37 @@
+{
+  "binaryAnswer": "YES",
+  "requestedTarget": 0.8,
+  "threshold": 0.65,
+  "model": "Proofmark/proofmark-webwild-v3",
+  "clean": {
+    "images": 1749,
+    "correct": 1654,
+    "ordinaryAccuracy": 0.9456832475700401,
+    "balancedAccuracy": 0.9456914024190912,
+    "aiRecall": 0.959954233409611,
+    "realRecall": 0.9314285714285714,
+    "ordinaryAccuracyWilson95": [0.934051614078762, 0.9553613970950439]
+  },
+  "webStress": {
+    "images": 1749,
+    "correct": 1599,
+    "ordinaryAccuracy": 0.9142367066895368,
+    "balancedAccuracy": 0.9142491010134031,
+    "aiRecall": 0.9359267734553776,
+    "realRecall": 0.8925714285714286,
+    "ordinaryAccuracyWilson95": [0.9001888685436513, 0.9264688948885772]
+  },
+  "lowestGeneratorRecall": {
+    "clean": { "generator": "adm", "recall": 0.824 },
+    "webStress": { "generator": "adm", "recall": 0.824 }
+  },
+  "evidence": {
+    "manifest": "webwild-v3-locked-manifest.json",
+    "cleanRows": "webwild-v3-sealed-original.json",
+    "webStressRows": "webwild-v3-sealed-web.json",
+    "releaseLock": "webwild-v3-release-lock.json",
+    "crossSplitExactOverlap": 0,
+    "crossSplitNearOverlap": 0
+  },
+  "caveat": "These rates estimate the named held-out distribution; no finite benchmark proves the same rate on every future website or generator."
+}

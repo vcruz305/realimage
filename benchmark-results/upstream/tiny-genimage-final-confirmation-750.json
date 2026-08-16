@@ -1,0 +1,6013 @@
+{
+  "model": "OwensLab/commfor-model-384-browser",
+  "dtype": "q8",
+  "threshold": 0.65,
+  "totals": {
+    "ai": 375,
+    "real": 375,
+    "aiCorrect": 322,
+    "realCorrect": 375
+  },
+  "rows": [
+    {
+      "file": "ai/0000-source-1655-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8334747842651643,
+      "ai": "83.3%",
+      "ms": 94
+    },
+    {
+      "file": "ai/0001-source-127-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 76
+    },
+    {
+      "file": "ai/0002-source-1163-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9987808246496759,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0003-source-1469-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0004-source-1109-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9973467295656907,
+      "ai": "99.7%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0005-source-1043-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.07995763171962372,
+      "ai": "8.0%",
+      "ms": 133
+    },
+    {
+      "file": "ai/0006-source-523-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 77
+    },
+    {
+      "file": "ai/0007-source-115-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0008-source-749-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9878362424872609,
+      "ai": "98.8%",
+      "ms": 132
+    },
+    {
+      "file": "ai/0009-source-1237-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0010-source-1419-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0011-source-305-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0012-source-1431-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.04981506319586737,
+      "ai": "5.0%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0013-source-871-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9862545899443886,
+      "ai": "98.6%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0014-source-567-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 98
+    },
+    {
+      "file": "ai/0015-source-227-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989565225626053,
+      "ai": "99.9%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0016-source-1415-generator-adm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.3834293892914457,
+      "ai": "38.3%",
+      "ms": 75
+    },
+    {
+      "file": "ai/0017-source-795-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0018-source-1479-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0019-source-899-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.012525407495730681,
+      "ai": "1.3%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0020-source-1481-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0021-source-1369-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0022-source-817-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0023-source-101-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.998506246968725,
+      "ai": "99.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0024-source-1039-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9917773521103009,
+      "ai": "99.2%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0025-source-75-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0026-source-1733-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0027-source-897-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0028-source-591-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.011059078381142779,
+      "ai": "1.1%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0029-source-1233-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0030-source-1701-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9651712536163892,
+      "ai": "96.5%",
+      "ms": 121
+    },
+    {
+      "file": "ai/0031-source-543-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0032-source-549-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.002554153896600381,
+      "ai": "0.3%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0033-source-1535-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 81
+    },
+    {
+      "file": "ai/0034-source-239-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0035-source-313-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0036-source-781-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0037-source-1241-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0038-source-693-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8923052949237408,
+      "ai": "89.2%",
+      "ms": 118
+    },
+    {
+      "file": "ai/0039-source-677-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0040-source-1377-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0041-source-279-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 79
+    },
+    {
+      "file": "ai/0042-source-333-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0043-source-307-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0044-source-1633-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0045-source-705-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9934701029649993,
+      "ai": "99.3%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0046-source-869-generator-adm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.01196582153216453,
+      "ai": "1.2%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0047-source-1319-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0048-source-1403-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.11772709201790513,
+      "ai": "11.8%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0049-source-1171-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 81
+    },
+    {
+      "file": "ai/0050-source-1609-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989168031486145,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0051-source-161-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.01112377508122044,
+      "ai": "1.1%",
+      "ms": 133
+    },
+    {
+      "file": "ai/0052-source-233-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 94
+    },
+    {
+      "file": "ai/0053-source-393-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0054-source-91-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.04258142582755318,
+      "ai": "4.3%",
+      "ms": 143
+    },
+    {
+      "file": "ai/0055-source-285-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0056-source-1629-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0057-source-1239-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 110
+    },
+    {
+      "file": "ai/0058-source-1449-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.016783971125739275,
+      "ai": "1.7%",
+      "ms": 128
+    },
+    {
+      "file": "ai/0059-source-169-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.7403168439860934,
+      "ai": "74.0%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0060-source-479-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.18110730869871525,
+      "ai": "18.1%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0061-source-329-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9108476906192625,
+      "ai": "91.1%",
+      "ms": 105
+    },
+    {
+      "file": "ai/0062-source-921-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0063-source-1001-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 123
+    },
+    {
+      "file": "ai/0064-source-1637-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0065-source-803-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0066-source-1595-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0067-source-641-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0068-source-1321-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0069-source-1489-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0070-source-625-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 81
+    },
+    {
+      "file": "ai/0071-source-1603-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 117
+    },
+    {
+      "file": "ai/0072-source-1363-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0073-source-1437-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0074-source-721-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8733822511939833,
+      "ai": "87.3%",
+      "ms": 115
+    },
+    {
+      "file": "ai/0075-source-259-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.03282794670585122,
+      "ai": "3.3%",
+      "ms": 126
+    },
+    {
+      "file": "ai/0076-source-793-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0077-source-1477-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.008627167208453607,
+      "ai": "0.9%",
+      "ms": 126
+    },
+    {
+      "file": "ai/0078-source-1565-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0079-source-41-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0080-source-31-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9692093419775689,
+      "ai": "96.9%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0081-source-1375-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 64
+    },
+    {
+      "file": "ai/0082-source-35-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9987470075544698,
+      "ai": "99.9%",
+      "ms": 114
+    },
+    {
+      "file": "ai/0083-source-1649-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0084-source-855-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0085-source-715-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9836739528554389,
+      "ai": "98.4%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0086-source-511-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8885766430121793,
+      "ai": "88.9%",
+      "ms": 115
+    },
+    {
+      "file": "ai/0087-source-1099-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.04899392558277566,
+      "ai": "4.9%",
+      "ms": 116
+    },
+    {
+      "file": "ai/0088-source-487-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0089-source-863-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0090-source-617-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0091-source-635-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0092-source-727-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0093-source-69-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0094-source-883-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0095-source-789-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0096-source-1483-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 88
+    },
+    {
+      "file": "ai/0097-source-1223-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0098-source-1331-generator-adm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.20841959310445016,
+      "ai": "20.8%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0099-source-315-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 216
+    },
+    {
+      "file": "ai/0100-source-1541-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 74
+    },
+    {
+      "file": "ai/0101-source-1249-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.338691282445521,
+      "ai": "33.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0102-source-1539-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0103-source-399-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.998532267461302,
+      "ai": "99.9%",
+      "ms": 108
+    },
+    {
+      "file": "ai/0104-source-343-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 125
+    },
+    {
+      "file": "ai/0105-source-1003-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0106-source-637-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9799848938647844,
+      "ai": "98.0%",
+      "ms": 109
+    },
+    {
+      "file": "ai/0107-source-959-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8775787434189908,
+      "ai": "87.8%",
+      "ms": 101
+    },
+    {
+      "file": "ai/0108-source-979-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0109-source-657-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0110-source-475-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0111-source-845-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0112-source-1011-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0113-source-821-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989168031486145,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0114-source-1423-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0115-source-663-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0116-source-649-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9983561877788659,
+      "ai": "99.8%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0117-source-1473-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.996254837413566,
+      "ai": "99.6%",
+      "ms": 64
+    },
+    {
+      "file": "ai/0118-source-215-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0119-source-245-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.0017216334585014434,
+      "ai": "0.2%",
+      "ms": 136
+    },
+    {
+      "file": "ai/0120-source-25-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 74
+    },
+    {
+      "file": "ai/0121-source-1339-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0122-source-425-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0123-source-321-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 80
+    },
+    {
+      "file": "ai/0124-source-1141-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9975233806870814,
+      "ai": "99.8%",
+      "ms": 119
+    },
+    {
+      "file": "ai/0125-source-1067-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.6349305179347305,
+      "ai": "63.5%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0126-source-263-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0127-source-1685-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0128-source-417-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0129-source-687-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9634819816123565,
+      "ai": "96.3%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0130-source-877-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0131-source-1181-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0132-source-477-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9859835357715526,
+      "ai": "98.6%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0133-source-1659-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 125
+    },
+    {
+      "file": "ai/0134-source-1015-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.20285330070861726,
+      "ai": "20.3%",
+      "ms": 135
+    },
+    {
+      "file": "ai/0135-source-1111-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0136-source-1383-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0137-source-281-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0138-source-841-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.997726145655575,
+      "ai": "99.8%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0139-source-957-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0140-source-605-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.07556358686137286,
+      "ai": "7.6%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0141-source-255-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.995200398096303,
+      "ai": "99.5%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0142-source-585-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0143-source-1271-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0144-source-365-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.7775912455467588,
+      "ai": "77.8%",
+      "ms": 75
+    },
+    {
+      "file": "ai/0145-source-291-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0146-source-1707-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0147-source-597-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 89
+    },
+    {
+      "file": "ai/0148-source-1459-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.937185223609942,
+      "ai": "93.7%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0149-source-319-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0150-source-341-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0151-source-1243-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0152-source-671-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0153-source-467-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0154-source-935-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0155-source-923-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0156-source-619-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0157-source-1299-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0158-source-1031-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0159-source-861-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9963274351030128,
+      "ai": "99.6%",
+      "ms": 114
+    },
+    {
+      "file": "ai/0160-source-17-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0161-source-759-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.511843471647699,
+      "ai": "51.2%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0162-source-1523-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0163-source-1211-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.978876602636208,
+      "ai": "97.9%",
+      "ms": 119
+    },
+    {
+      "file": "ai/0164-source-1253-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 117
+    },
+    {
+      "file": "ai/0165-source-1723-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0166-source-827-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0167-source-541-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0168-source-1095-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.24302248755980457,
+      "ai": "24.3%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0169-source-1445-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.7825660429008516,
+      "ai": "78.3%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0170-source-1653-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 76
+    },
+    {
+      "file": "ai/0171-source-555-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0172-source-183-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0173-source-407-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8398401778176044,
+      "ai": "84.0%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0174-source-1661-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0175-source-1587-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0176-source-449-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9944050871141761,
+      "ai": "99.4%",
+      "ms": 76
+    },
+    {
+      "file": "ai/0177-source-1173-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0178-source-1215-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0179-source-1351-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.04323077224839349,
+      "ai": "4.3%",
+      "ms": 125
+    },
+    {
+      "file": "ai/0180-source-229-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0181-source-1029-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9981269800327285,
+      "ai": "99.8%",
+      "ms": 118
+    },
+    {
+      "file": "ai/0182-source-971-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0183-source-151-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0184-source-163-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 89
+    },
+    {
+      "file": "ai/0185-source-1645-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 115
+    },
+    {
+      "file": "ai/0186-source-811-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0187-source-975-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0188-source-1395-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0189-source-363-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0190-source-205-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0191-source-929-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0192-source-879-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0193-source-67-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0194-source-733-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0195-source-1593-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0196-source-137-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0197-source-105-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.7131306821810394,
+      "ai": "71.3%",
+      "ms": 109
+    },
+    {
+      "file": "ai/0198-source-1143-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0199-source-695-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989168031486145,
+      "ai": "99.9%",
+      "ms": 89
+    },
+    {
+      "file": "ai/0200-source-1295-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 99
+    },
+    {
+      "file": "ai/0201-source-739-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0202-source-1551-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 75
+    },
+    {
+      "file": "ai/0203-source-825-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0204-source-579-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0205-source-1585-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0206-source-1183-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9747932059746172,
+      "ai": "97.5%",
+      "ms": 109
+    },
+    {
+      "file": "ai/0207-source-865-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0208-source-185-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9949239669252891,
+      "ai": "99.5%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0209-source-713-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0210-source-1393-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.1875409899155029,
+      "ai": "18.8%",
+      "ms": 120
+    },
+    {
+      "file": "ai/0211-source-211-generator-adm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.5154192583424726,
+      "ai": "51.5%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0212-source-981-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0213-source-1497-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0214-source-175-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.5462313158572077,
+      "ai": "54.6%",
+      "ms": 115
+    },
+    {
+      "file": "ai/0215-source-1115-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 80
+    },
+    {
+      "file": "ai/0216-source-1149-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9973272138726091,
+      "ai": "99.7%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0217-source-219-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 80
+    },
+    {
+      "file": "ai/0218-source-603-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9759147484601399,
+      "ai": "97.6%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0219-source-13-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0220-source-643-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0221-source-1703-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0222-source-441-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 127
+    },
+    {
+      "file": "ai/0223-source-1735-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0224-source-707-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 129
+    },
+    {
+      "file": "ai/0225-source-535-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.5240214338442055,
+      "ai": "52.4%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0226-source-717-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0227-source-1643-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0228-source-221-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0229-source-569-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0230-source-123-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0231-source-225-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0232-source-509-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0233-source-499-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0234-source-851-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0235-source-209-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 89
+    },
+    {
+      "file": "ai/0236-source-77-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9939867272782006,
+      "ai": "99.4%",
+      "ms": 126
+    },
+    {
+      "file": "ai/0237-source-961-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0238-source-945-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9976945457830938,
+      "ai": "99.8%",
+      "ms": 130
+    },
+    {
+      "file": "ai/0239-source-1027-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0240-source-835-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 81
+    },
+    {
+      "file": "ai/0241-source-1287-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0242-source-1227-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0243-source-111-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 91
+    },
+    {
+      "file": "ai/0244-source-925-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9968451075213143,
+      "ai": "99.7%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0245-source-967-generator-adm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.243987544311546,
+      "ai": "24.4%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0246-source-947-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 81
+    },
+    {
+      "file": "ai/0247-source-1405-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0248-source-235-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0249-source-1053-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.7613083393554655,
+      "ai": "76.1%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0250-source-95-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0251-source-1411-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0252-source-787-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9987927837540033,
+      "ai": "99.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0253-source-911-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0254-source-187-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0255-source-237-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 89
+    },
+    {
+      "file": "ai/0256-source-413-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 119
+    },
+    {
+      "file": "ai/0257-source-1673-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.3628966467335338,
+      "ai": "36.3%",
+      "ms": 117
+    },
+    {
+      "file": "ai/0258-source-39-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0259-source-1049-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 81
+    },
+    {
+      "file": "ai/0260-source-131-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0261-source-1005-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0262-source-1601-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0263-source-19-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0264-source-1131-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0265-source-3-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0266-source-445-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0267-source-531-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 89
+    },
+    {
+      "file": "ai/0268-source-703-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0269-source-1485-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9015528998341319,
+      "ai": "90.2%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0270-source-483-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 131
+    },
+    {
+      "file": "ai/0271-source-1567-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0272-source-1487-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0273-source-1421-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 98
+    },
+    {
+      "file": "ai/0274-source-831-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0275-source-765-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0276-source-1451-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0277-source-1583-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0278-source-1463-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 112
+    },
+    {
+      "file": "ai/0279-source-881-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 80
+    },
+    {
+      "file": "ai/0280-source-1113-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.018537175440518312,
+      "ai": "1.9%",
+      "ms": 135
+    },
+    {
+      "file": "ai/0281-source-1205-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0282-source-747-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0283-source-767-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0284-source-1429-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9976349990888338,
+      "ai": "99.8%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0285-source-79-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 79
+    },
+    {
+      "file": "ai/0286-source-1557-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9234341791402909,
+      "ai": "92.3%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0287-source-1615-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0288-source-783-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0289-source-323-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0290-source-1273-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0291-source-1219-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.7946487689862592,
+      "ai": "79.5%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0292-source-1427-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0293-source-1345-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 75
+    },
+    {
+      "file": "ai/0294-source-1155-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 114
+    },
+    {
+      "file": "ai/0295-source-1225-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9763933704087098,
+      "ai": "97.6%",
+      "ms": 96
+    },
+    {
+      "file": "ai/0296-source-1255-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0297-source-147-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.1271599336713015,
+      "ai": "12.7%",
+      "ms": 113
+    },
+    {
+      "file": "ai/0298-source-681-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 82
+    },
+    {
+      "file": "ai/0299-source-1267-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.4602954306807683,
+      "ai": "46.0%",
+      "ms": 118
+    },
+    {
+      "file": "ai/0300-source-7-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 131
+    },
+    {
+      "file": "ai/0301-source-11-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0302-source-199-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0303-source-1221-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9980583679310265,
+      "ai": "99.8%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0304-source-465-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.06379917480589765,
+      "ai": "6.4%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0305-source-1425-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 74
+    },
+    {
+      "file": "ai/0306-source-1097-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0307-source-207-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0308-source-1037-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8858869390307358,
+      "ai": "88.6%",
+      "ms": 74
+    },
+    {
+      "file": "ai/0309-source-55-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0310-source-1063-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0311-source-917-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.0016313523880297444,
+      "ai": "0.2%",
+      "ms": 130
+    },
+    {
+      "file": "ai/0312-source-633-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9356903195990957,
+      "ai": "93.6%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0313-source-1251-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0314-source-495-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0315-source-1715-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9969642349918675,
+      "ai": "99.7%",
+      "ms": 104
+    },
+    {
+      "file": "ai/0316-source-1083-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0317-source-1597-generator-adm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.631037011996203,
+      "ai": "63.1%",
+      "ms": 76
+    },
+    {
+      "file": "ai/0318-source-1269-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0319-source-1537-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0320-source-317-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0321-source-1059-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 81
+    },
+    {
+      "file": "ai/0322-source-1743-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 121
+    },
+    {
+      "file": "ai/0323-source-1729-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 106
+    },
+    {
+      "file": "ai/0324-source-1055-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0325-source-1119-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 90
+    },
+    {
+      "file": "ai/0326-source-1165-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9717776528253754,
+      "ai": "97.2%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0327-source-1333-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 65
+    },
+    {
+      "file": "ai/0328-source-1727-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 71
+    },
+    {
+      "file": "ai/0329-source-1545-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0330-source-665-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9933457348546431,
+      "ai": "99.3%",
+      "ms": 98
+    },
+    {
+      "file": "ai/0331-source-769-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0332-source-1511-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0333-source-785-generator-adm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.011358827522924912,
+      "ai": "1.1%",
+      "ms": 74
+    },
+    {
+      "file": "ai/0334-source-447-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0335-source-1147-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0336-source-735-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 110
+    },
+    {
+      "file": "ai/0337-source-1135-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0338-source-999-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0339-source-799-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0340-source-757-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9388536958745856,
+      "ai": "93.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0341-source-745-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0342-source-1591-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0343-source-547-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0344-source-43-generator-adm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.059062248657371925,
+      "ai": "5.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0345-source-23-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0346-source-193-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 78
+    },
+    {
+      "file": "ai/0347-source-241-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.31244422680484946,
+      "ai": "31.2%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0348-source-595-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.053070748953334836,
+      "ai": "5.3%",
+      "ms": 127
+    },
+    {
+      "file": "ai/0349-source-389-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.3740648076401924,
+      "ai": "37.4%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0350-source-1617-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 121
+    },
+    {
+      "file": "ai/0351-source-839-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0352-source-1-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0353-source-117-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0354-source-1571-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8938020612932235,
+      "ai": "89.4%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0355-source-1123-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.05880806091365184,
+      "ai": "5.9%",
+      "ms": 67
+    },
+    {
+      "file": "ai/0356-source-893-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 72
+    },
+    {
+      "file": "ai/0357-source-1105-generator-wukong.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 84
+    },
+    {
+      "file": "ai/0358-source-201-generator-glide.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 70
+    },
+    {
+      "file": "ai/0359-source-497-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.802777782886454,
+      "ai": "80.3%",
+      "ms": 118
+    },
+    {
+      "file": "ai/0360-source-1073-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 85
+    },
+    {
+      "file": "ai/0361-source-829-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.0033509409371005193,
+      "ai": "0.3%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0362-source-777-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 141
+    },
+    {
+      "file": "ai/0363-source-823-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 69
+    },
+    {
+      "file": "ai/0364-source-1033-generator-vqdm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 68
+    },
+    {
+      "file": "ai/0365-source-1507-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 83
+    },
+    {
+      "file": "ai/0366-source-645-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9946464857586822,
+      "ai": "99.5%",
+      "ms": 74
+    },
+    {
+      "file": "ai/0367-source-737-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989062179777374,
+      "ai": "99.9%",
+      "ms": 86
+    },
+    {
+      "file": "ai/0368-source-1519-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 122
+    },
+    {
+      "file": "ai/0369-source-1639-generator-adm.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.6989914398665065,
+      "ai": "69.9%",
+      "ms": 73
+    },
+    {
+      "file": "ai/0370-source-1017-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 90
+    },
+    {
+      "file": "ai/0371-source-1367-generator-sd15.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9989999999999999,
+      "ai": "99.9%",
+      "ms": 87
+    },
+    {
+      "file": "ai/0372-source-913-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.8342575192559829,
+      "ai": "83.4%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0373-source-815-generator-biggan.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.7819200086467002,
+      "ai": "78.2%",
+      "ms": 66
+    },
+    {
+      "file": "ai/0374-source-1561-generator-midjourney.png",
+      "expected": "ai",
+      "predicted": "ai",
+      "score": 0.9262875343593134,
+      "ai": "92.6%",
+      "ms": 145
+    },
+    {
+      "file": "real/0000-source-892-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0001-source-126-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0002-source-1682-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0035038380543671523,
+      "ai": "0.4%",
+      "ms": 70
+    },
+    {
+      "file": "real/0003-source-1474-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0004-source-1440-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0005-source-1016-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0006-source-198-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0007-source-682-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 72
+    },
+    {
+      "file": "real/0008-source-1310-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0009-source-378-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0010-source-220-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0011-source-1656-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0012-source-1612-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0013-source-368-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0014-source-1574-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0015-source-278-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0016-source-512-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 72
+    },
+    {
+      "file": "real/0017-source-1540-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0018-source-982-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 72
+    },
+    {
+      "file": "real/0019-source-356-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0020-source-1732-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 69
+    },
+    {
+      "file": "real/0021-source-190-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0022-source-1452-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0023-source-1448-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0024-source-238-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0025-source-786-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0026-source-890-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 72
+    },
+    {
+      "file": "real/0027-source-502-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.007032735985051976,
+      "ai": "0.7%",
+      "ms": 73
+    },
+    {
+      "file": "real/0028-source-122-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0029-source-1464-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0030-source-656-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0031-source-1548-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0032-source-414-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0033-source-1340-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0034-source-1536-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0035-source-1254-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0036-source-382-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0037-source-1172-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0038-source-1378-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0039-source-182-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0040-source-1514-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0041-source-1138-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0042-source-52-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 90
+    },
+    {
+      "file": "real/0043-source-1150-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0044-source-1062-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0045-source-1098-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0046-source-36-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0047-source-470-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0048-source-986-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0049-source-600-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 71
+    },
+    {
+      "file": "real/0050-source-1724-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0051-source-1084-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0052-source-1658-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 72
+    },
+    {
+      "file": "real/0053-source-1048-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0054-source-16-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0055-source-696-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0056-source-1556-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0057-source-824-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0058-source-408-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0059-source-458-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0060-source-366-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0061-source-620-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 101
+    },
+    {
+      "file": "real/0062-source-1270-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0063-source-1200-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0064-source-234-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 93
+    },
+    {
+      "file": "real/0065-source-584-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 92
+    },
+    {
+      "file": "real/0066-source-1024-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 100
+    },
+    {
+      "file": "real/0067-source-1640-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0068-source-294-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 93
+    },
+    {
+      "file": "real/0069-source-114-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 91
+    },
+    {
+      "file": "real/0070-source-858-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0071-source-346-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 154
+    },
+    {
+      "file": "real/0072-source-654-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0073-source-1018-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0074-source-926-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0023994344538046733,
+      "ai": "0.2%",
+      "ms": 78
+    },
+    {
+      "file": "real/0075-source-760-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0076-source-338-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0011050546984584862,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0077-source-1088-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0078-source-920-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0079-source-778-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0080-source-716-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0081-source-1198-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0082-source-232-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0083-source-1282-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0010617708903002802,
+      "ai": "0.1%",
+      "ms": 91
+    },
+    {
+      "file": "real/0084-source-1156-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 93
+    },
+    {
+      "file": "real/0085-source-566-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0086-source-1516-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0087-source-532-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 92
+    },
+    {
+      "file": "real/0088-source-936-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0089-source-1236-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.006915325990886576,
+      "ai": "0.7%",
+      "ms": 88
+    },
+    {
+      "file": "real/0090-source-134-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0091-source-650-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0092-source-1522-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0093-source-8-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0094-source-776-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0095-source-1508-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0096-source-912-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0097-source-304-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0098-source-874-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0099-source-692-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0013636604326902157,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0100-source-218-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0101-source-634-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0102-source-736-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0103-source-28-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0104-source-1438-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 94
+    },
+    {
+      "file": "real/0105-source-1370-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0106-source-688-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0107-source-1740-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 96
+    },
+    {
+      "file": "real/0108-source-624-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0109-source-1068-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0110-source-162-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.009014377982366687,
+      "ai": "0.9%",
+      "ms": 105
+    },
+    {
+      "file": "real/0111-source-138-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 108
+    },
+    {
+      "file": "real/0112-source-1352-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0113-source-1242-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0114-source-354-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0115-source-430-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0116-source-332-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 90
+    },
+    {
+      "file": "real/0117-source-530-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0118-source-10-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0119-source-648-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0120-source-550-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0019354950242683015,
+      "ai": "0.2%",
+      "ms": 86
+    },
+    {
+      "file": "real/0121-source-82-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0122-source-1136-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 92
+    },
+    {
+      "file": "real/0123-source-616-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0124-source-770-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 90
+    },
+    {
+      "file": "real/0125-source-630-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0126-source-1708-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0127-source-390-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0128-source-1272-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0129-source-166-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0130-source-1720-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0131-source-1008-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0132-source-686-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0133-source-1468-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0134-source-1332-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.00698511625878414,
+      "ai": "0.7%",
+      "ms": 88
+    },
+    {
+      "file": "real/0135-source-1180-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 94
+    },
+    {
+      "file": "real/0136-source-974-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0137-source-570-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0138-source-1694-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0139-source-1678-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0140-source-664-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0141-source-342-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0013661562425967102,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0142-source-1194-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0143-source-1554-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0012329204104766442,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0144-source-1584-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.01839923574912578,
+      "ai": "1.8%",
+      "ms": 76
+    },
+    {
+      "file": "real/0145-source-1216-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0146-source-1692-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0147-source-1480-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 90
+    },
+    {
+      "file": "real/0148-source-934-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0149-source-324-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0150-source-984-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0151-source-676-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0152-source-602-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0153-source-1206-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.009704869208039476,
+      "ai": "1.0%",
+      "ms": 85
+    },
+    {
+      "file": "real/0154-source-1308-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0155-source-1372-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0156-source-1434-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0157-source-106-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0158-source-818-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 92
+    },
+    {
+      "file": "real/0159-source-798-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0160-source-748-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 90
+    },
+    {
+      "file": "real/0161-source-192-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0162-source-74-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 105
+    },
+    {
+      "file": "real/0163-source-510-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0164-source-210-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0165-source-248-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0166-source-1510-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 70
+    },
+    {
+      "file": "real/0167-source-364-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0168-source-1462-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0169-source-240-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0170-source-12-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0171-source-1126-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0172-source-1586-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0173-source-196-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0174-source-150-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0175-source-610-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0176-source-704-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0177-source-860-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0178-source-940-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0179-source-1518-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0180-source-614-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0181-source-572-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0182-source-878-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0183-source-328-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.22437274409215416,
+      "ai": "22.4%",
+      "ms": 84
+    },
+    {
+      "file": "real/0184-source-886-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0185-source-1716-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0186-source-1616-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0187-source-330-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0188-source-598-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0189-source-842-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0027473163597842216,
+      "ai": "0.3%",
+      "ms": 77
+    },
+    {
+      "file": "real/0190-source-1278-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0191-source-1494-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0192-source-1070-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0193-source-942-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0194-source-918-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0195-source-772-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0196-source-1290-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0197-source-560-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0198-source-1748-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0199-source-1334-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0200-source-434-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0201-source-1320-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0202-source-4-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0203-source-1562-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0204-source-1342-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0205-source-142-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0206-source-1288-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0045954927171754575,
+      "ai": "0.5%",
+      "ms": 83
+    },
+    {
+      "file": "real/0207-source-34-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0208-source-1572-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0209-source-68-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0210-source-370-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0211-source-1184-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0212-source-714-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0213-source-1488-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0214-source-1358-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0215-source-90-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0216-source-1080-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 95
+    },
+    {
+      "file": "real/0217-source-646-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0218-source-1384-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0219-source-556-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0220-source-916-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0221-source-864-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0222-source-1292-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0223-source-1636-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0224-source-1578-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0225-source-1366-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0226-source-302-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0227-source-1296-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0228-source-1064-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 92
+    },
+    {
+      "file": "real/0229-source-62-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0230-source-972-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0231-source-694-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0232-source-292-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0233-source-1500-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0234-source-160-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0235-source-930-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0236-source-504-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0237-source-1034-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0238-source-1116-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0239-source-58-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0240-source-588-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0241-source-946-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0242-source-568-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0243-source-996-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0244-source-740-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0245-source-1154-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0246-source-32-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0247-source-1736-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0248-source-700-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0249-source-236-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0250-source-344-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 68
+    },
+    {
+      "file": "real/0251-source-1346-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0252-source-1428-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0012753535317337637,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0253-source-50-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.006652308109509417,
+      "ai": "0.7%",
+      "ms": 81
+    },
+    {
+      "file": "real/0254-source-1326-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0255-source-1620-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0256-source-136-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.00574296671099132,
+      "ai": "0.6%",
+      "ms": 88
+    },
+    {
+      "file": "real/0257-source-1396-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.07686923554549702,
+      "ai": "7.7%",
+      "ms": 80
+    },
+    {
+      "file": "real/0258-source-358-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0259-source-1052-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0260-source-1404-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 94
+    },
+    {
+      "file": "real/0261-source-1306-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0262-source-718-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0263-source-94-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0264-source-2-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0265-source-640-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0266-source-1376-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0267-source-444-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0268-source-1002-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0269-source-500-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0270-source-452-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0271-source-488-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0272-source-1212-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 100
+    },
+    {
+      "file": "real/0273-source-848-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0274-source-224-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0275-source-1610-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0010617708903002802,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0276-source-1582-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0277-source-398-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0278-source-280-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0279-source-784-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0280-source-460-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0281-source-154-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0282-source-158-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0283-source-1076-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0284-source-816-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0285-source-1348-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 92
+    },
+    {
+      "file": "real/0286-source-1524-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0287-source-1220-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0288-source-554-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0289-source-14-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0290-source-1552-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 70
+    },
+    {
+      "file": "real/0291-source-830-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 97
+    },
+    {
+      "file": "real/0292-source-854-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0293-source-1614-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0294-source-540-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0295-source-680-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0296-source-754-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0297-source-1502-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0298-source-242-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0299-source-1170-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0300-source-1110-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0301-source-146-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0302-source-1604-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0303-source-644-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0304-source-604-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0305-source-1442-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0306-source-820-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0307-source-1588-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0308-source-1162-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 90
+    },
+    {
+      "file": "real/0309-source-250-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0310-source-1144-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0311-source-1168-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0312-source-484-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0313-source-1046-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0314-source-1622-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0315-source-1450-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0018214683358198352,
+      "ai": "0.2%",
+      "ms": 84
+    },
+    {
+      "file": "real/0316-source-988-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0317-source-1422-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 70
+    },
+    {
+      "file": "real/0318-source-1398-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 91
+    },
+    {
+      "file": "real/0319-source-626-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0034107651980044592,
+      "ai": "0.3%",
+      "ms": 79
+    },
+    {
+      "file": "real/0320-source-340-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0321-source-742-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0322-source-1618-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0323-source-990-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0324-source-96-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0325-source-1210-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0326-source-1276-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 73
+    },
+    {
+      "file": "real/0327-source-1262-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0328-source-544-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0329-source-1680-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0330-source-290-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0331-source-546-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0332-source-526-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0333-source-54-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0334-source-466-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0335-source-110-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0336-source-130-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0337-source-976-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0338-source-1564-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    },
+    {
+      "file": "real/0339-source-968-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0340-source-708-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0341-source-596-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0342-source-672-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 80
+    },
+    {
+      "file": "real/0343-source-496-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0344-source-1550-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0345-source-590-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0346-source-1388-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0347-source-194-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0348-source-1444-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0349-source-1746-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.0013529132283983576,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0350-source-822-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0351-source-932-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 84
+    },
+    {
+      "file": "real/0352-source-276-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0353-source-1598-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.008997695496781356,
+      "ai": "0.9%",
+      "ms": 73
+    },
+    {
+      "file": "real/0354-source-300-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0355-source-384-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0356-source-910-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 77
+    },
+    {
+      "file": "real/0357-source-1466-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 71
+    },
+    {
+      "file": "real/0358-source-586-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0359-source-1022-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 87
+    },
+    {
+      "file": "real/0360-source-66-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0361-source-1566-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 81
+    },
+    {
+      "file": "real/0362-source-72-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 85
+    },
+    {
+      "file": "real/0363-source-928-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 78
+    },
+    {
+      "file": "real/0364-source-208-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 89
+    },
+    {
+      "file": "real/0365-source-246-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 86
+    },
+    {
+      "file": "real/0366-source-204-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0367-source-622-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 71
+    },
+    {
+      "file": "real/0368-source-400-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 75
+    },
+    {
+      "file": "real/0369-source-168-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 83
+    },
+    {
+      "file": "real/0370-source-326-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 88
+    },
+    {
+      "file": "real/0371-source-482-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 76
+    },
+    {
+      "file": "real/0372-source-310-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 79
+    },
+    {
+      "file": "real/0373-source-38-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 82
+    },
+    {
+      "file": "real/0374-source-336-generator-real.jpeg",
+      "expected": "real",
+      "predicted": "real",
+      "score": 0.001,
+      "ai": "0.1%",
+      "ms": 74
+    }
+  ]
+}

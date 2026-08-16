@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RealImage local gallery fixture</title>
+    <style>
+      body { margin: 0; padding: 40px; background: #eef2f7; color: #14263f; font-family: system-ui, sans-serif; }
+      main { max-width: 980px; margin: auto; }
+      h1 { font-family: Georgia, serif; font-size: 32px; }
+      .gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+      figure { margin: 0; padding: 12px; background: white; border-radius: 16px; box-shadow: 0 10px 28px #19304d1c; }
+      img { display: block; width: 100%; height: auto; border-radius: 10px; background: #ddd; }
+      figcaption { padding: 10px 2px 2px; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>RealImage local gallery fixture</h1>
+      <p>Six local images, all loaded with relative paths (no external URLs). Used to manually verify the
+        <code>file://</code> support fix -- see <code>docs/MANUAL_E2E.md</code>.</p>
+      <div class="gallery">
+        <figure><img src="../generator-marked.svg" alt="Stylized gradient landscape fixture with embedded generator metadata"><figcaption>generator-marked.svg</figcaption></figure>
+        <figure><img src="../synthetic-a.svg" alt="Abstract saturated dusk scene fixture"><figcaption>synthetic-a.svg</figcaption></figure>
+        <figure><img src="../synthetic-b.svg" alt="Abstract radial glow fixture"><figcaption>synthetic-b.svg</figcaption></figure>
+        <figure><img src="../unmarked.svg" alt="Simple unmarked landscape fixture"><figcaption>unmarked.svg</figcaption></figure>
+        <figure><img src="../plain-scene.svg" alt="Muted overcast skyline fixture"><figcaption>plain-scene.svg</figcaption></figure>
+        <figure><img src="../../../icons/realimage-master.png" alt="RealImage extension icon artwork"><figcaption>realimage-master.png</figcaption></figure>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-08-13T15:20:51.592Z",
+  "inputs": [
+    "/Users/grantversluis/Documents/ChatGPT/Chrome Extension/benchmark-results/webwild-calibration-original-candidate.json",
+    "/Users/grantversluis/Documents/ChatGPT/Chrome Extension/benchmark-results/webwild-calibration-web-candidate.json"
+  ],
+  "rowCount": 1104,
+  "requirement": {
+    "balancedAccuracy": 0.8,
+    "aiRecall": 0.8,
+    "realRecall": 0.9
+  },
+  "selected": {
+    "threshold": 0.01440293646730881,
+    "balancedAccuracy": 0.9346638655462185,
+    "balancedAccuracyLower95": 0.9109327675925509,
+    "aiRecall": 0.9428571428571428,
+    "realRecall": 0.9264705882352942,
+    "aiCorrect": 528,
+    "aiTotal": 560,
+    "realCorrect": 504,
+    "realTotal": 544,
+    "minimumDomainRecall": 0.8892857142857142,
+    "domains": [
+      {
+        "label": "ai",
+        "domain": "flux-reason",
+        "correct": 249,
+        "total": 280,
+        "recall": 0.8892857142857142
+      },
+      {
+        "label": "ai",
+        "domain": "synthetic-characters",
+        "correct": 279,
+        "total": 280,
+        "recall": 0.9964285714285714
+      },
+      {
+        "label": "real",
+        "domain": "laion-aesthetic",
+        "correct": 266,
+        "total": 280,
+        "recall": 0.95
+      },
+      {
+        "label": "real",
+        "domain": "visual-logic",
+        "correct": 238,
+        "total": 264,
+        "recall": 0.9015151515151515
+      }
+    ]
+  },
+  "passes": {
+    "balancedAccuracy": true,
+    "aiRecall": true,
+    "realRecall": true,
+    "lower95BalancedAccuracy": true
+  }
+}

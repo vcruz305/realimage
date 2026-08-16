@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+  <defs><linearGradient id="day" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7eb5d5"/><stop offset="1" stop-color="#e9d8b8"/></linearGradient></defs>
+  <rect width="640" height="420" fill="url(#day)"/>
+  <circle cx="130" cy="95" r="46" fill="#fff7c4"/>
+  <path d="M0 300L160 175l91 108 128-144 101 124 87-74 73 91v140H0z" fill="#476d67"/>
+  <path d="M0 328c130-30 222-18 316 23 90 39 193-26 324-8v77H0z" fill="#2e5149"/>
+  <path d="M340 420c-5-69 8-121 31-164 20 55 34 105 37 164z" fill="#b9d9d1"/>
+</svg>

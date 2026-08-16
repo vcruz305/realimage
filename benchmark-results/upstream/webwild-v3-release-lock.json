@@ -1,0 +1,28 @@
+{
+  "protocol": "WebWild v3 sealed evaluation",
+  "frozenBeforeScoring": true,
+  "manifestSha256": "c82cbda08af9f074e62357fc3a60b8bfbb90ad7313258414ccd36922dbc0e320",
+  "sourceParquetSha256": "e8efe734ebe1757d4995a763688ca91c5a2752edfea7f381708220d4c28b7ae2",
+  "modelId": "Proofmark/proofmark-webwild-v3",
+  "modelSha256": "ed17ceb332bef84d0adcc2fa537eef85ed3ac6fb32c30393c326321fbbe54683",
+  "constantsSha256AtScoring": "f1c643be0768a48741b9a1d9bc78b820a38383e23c69067b2466cd8e6541e375",
+  "constantsSha256Release": "4660b352ec87eae8c0782819dd9b56f9082f67a0bdee1a19ccd92287299300df",
+  "postScoringChange": "UI-only license label and default blur setting; model identity, calibration, and score path are unchanged.",
+  "forensicsSha256": "caebca2f8a059ae65451c45afb527adbd2d03171f585674ff9d686f0de14b5c4",
+  "displayThreshold": 0.65,
+  "rawCalibrationThreshold": 0.020887045509173325,
+  "sealedOriginals": 1749,
+  "sealedWebVariants": 1749,
+  "classes": { "ai": 874, "real": 875 },
+  "crossSplitAudit": { "priorImages": 8115, "exactOverlap": 0, "nearOverlap": 0 },
+  "acceptance": {
+    "bountyBalancedAccuracy": 0.75,
+    "proofmarkBalancedAccuracy": 0.8,
+    "aiRecall": 0.8,
+    "cleanRealRecall": 0.9,
+    "webBalancedAccuracy": 0.8,
+    "majorGeneratorRecall": 0.75,
+    "midjourneyRecall": 0.55
+  },
+  "rule": "Model, score mapping, threshold, data manifest, and acceptance gates were frozen before any v3 sealed image was scored."
+}

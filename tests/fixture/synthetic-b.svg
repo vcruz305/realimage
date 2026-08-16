@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="65%"><stop stop-color="#ffb199"/><stop offset="1" stop-color="#0f2027"/></radialGradient>
+  </defs>
+  <rect width="640" height="420" fill="url(#glow)"/>
+  <polygon points="320,60 380,180 500,190 400,270 440,390 320,320 200,390 240,270 140,190 260,180" fill="#ffdd57" opacity=".8"/>
+  <circle cx="320" cy="210" r="70" fill="none" stroke="#26c6da" stroke-width="6" opacity=".7"/>
+  <circle cx="320" cy="210" r="110" fill="none" stroke="#26c6da" stroke-width="3" opacity=".4"/>
+</svg>
