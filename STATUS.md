@@ -93,13 +93,17 @@ Chrome profile / internet-disconnected case). Not yet executed.
 - GitHub Release published: https://github.com/vcruz305/realimage/releases/tag/v1.0.0
   (assets: `realimage-v1.0.0.zip`, `SHA256SUMS.txt`).
 
-## Post-v1.0.0 fixes (uncommitted, not yet released)
+## v1.1.0 (released 2026-08-17)
 
 Found via the user's own manual E2E testing after v1.0.0, then diagnosed and
 fixed live against a real installed Chrome via CDP (see
 `docs/CLAUDE_CODE_CHROME_TESTING.md`). `npm run check` is green after each.
-Not yet committed/tagged -- awaiting a version bump and release per the
-user's call.
+Committed (`8238a20`, `4f76232`), pushed, tagged `v1.1.0`, and released:
+https://github.com/vcruz305/realimage/releases/tag/v1.1.0 (assets:
+`realimage-v1.1.0.zip`, `SHA256SUMS-v1.1.0.txt`; ZIP SHA-256
+`c229c30e91be91faf6cd400bdc213a4b5d06374d228e35f56863f1f104d854ce`,
+110,120,705 bytes, reproduced twice with an identical hash). README.md
+updated with a full features list and the fixes below.
 
 1. **WebGPU->WASM fallback was completely broken** on machines without a
    usable GPU adapter (`@huggingface/transformers` caches the first
@@ -140,13 +144,21 @@ user's call.
    simulated continuous scroll burst produced 571 cheap passes vs. 10 full
    passes during the burst, with a batch of full passes correctly firing
    once scrolling settled.
+6. **Popup froze at whatever it saw the instant it opened**, never
+   reflecting a page's ongoing scan (reported live: opening the popup on
+   Google Images showed 0/0/0/0 with an empty results list while the page's
+   own badges kept completing behind it). `src/popup/popup.js` had no
+   live-update path at all -- `refresh()` ran once on open and otherwise
+   only on a settings change. Fixed with a 750ms poll while the popup is
+   open. Verified live via `chrome.action.openPopup()`: scanned count
+   climbed 26 -> 27 -> 29 -> 31 -> 35 -> 37 over 5 seconds while scrolling
+   the underlying page.
 
-## Next 2 tasks
+## Next task
 
-1. Commit and release the fixes above (version bump), then run the manual
-   E2E checklist (`docs/MANUAL_E2E.md`) in a real installed Chrome and
-   record results, including the offline fresh-profile case.
-2. Submit the POIDH claim only after that passes -- link the repo + release,
-   short comment (model, size, backend, unseen-generator holdout numbers,
-   real recall, file:// note). This is a manual step for the user, not
-   something to automate.
+Run the manual E2E checklist (`docs/MANUAL_E2E.md`) in a real installed
+Chrome and record results, including the offline fresh-profile case. Submit
+the POIDH claim only after that passes -- link the repo + release, short
+comment (model, size, backend, unseen-generator holdout numbers, real
+recall, file:// note). This is a manual step for the user, not something to
+automate.
