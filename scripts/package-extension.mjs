@@ -4,7 +4,7 @@ import { dirname, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const DEFAULT_INPUT = resolve('dist');
-const DEFAULT_ARTIFACT = resolve('artifacts/realimage-v1.0.0.zip');
+const DEFAULT_ARTIFACT = resolve('artifacts/realimage-v1.1.0.zip');
 const CRC32_TABLE = makeCrc32Table();
 
 export async function createDeterministicZip(inputRoot = DEFAULT_INPUT) {

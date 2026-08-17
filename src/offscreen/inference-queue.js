@@ -27,14 +27,23 @@ export class SerialInferenceQueue {
     return this.running ? 1 : 0;
   }
 
-  run(task) {
+  // `priority` orders the waiting list: lower runs sooner. Ties keep
+  // submission order (a stable insert, not a stable sort library) so
+  // requests with no position information (or all equal) behave exactly
+  // like the plain FIFO this queue used to be. A missing/invalid priority
+  // sorts last, never blocking a request that did supply one.
+  run(task, priority) {
     if (typeof task !== 'function') return Promise.reject(new TypeError('task must be a function.'));
     if (this.running && this.waiting.length >= this.maxQueued) {
       return Promise.reject(new InferenceQueueOverflowError());
     }
 
+    const orderedPriority = Number.isFinite(priority) ? priority : Number.POSITIVE_INFINITY;
     const promise = new Promise((resolve, reject) => {
-      this.waiting.push({ task, resolve, reject });
+      const entry = { task, priority: orderedPriority, resolve, reject };
+      let index = this.waiting.length;
+      while (index > 0 && this.waiting[index - 1].priority > entry.priority) index -= 1;
+      this.waiting.splice(index, 0, entry);
     });
     this.drain();
     return promise;

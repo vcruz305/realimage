@@ -1,6 +1,6 @@
 {
   "name": "realimage-local-ai-image-detector",
-  "version": "0.2.4",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "A private, browser-native AI image detector for Chrome.",

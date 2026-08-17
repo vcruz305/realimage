@@ -40,6 +40,7 @@ const MAX_PENDING_ADMISSIONS = 200;
 const MAX_VISIBILITY_MUTATION_ROOTS = 16;
 const MAX_VISIBILITY_SCAN_NODES = 2048;
 const MAX_VISIBILITY_RETRY_IMAGES = 200;
+const MAX_PAGE_CONTEXT_TEXT_CHARS = 500;
 
 const pageState = {
   status: 'idle',
@@ -204,7 +205,14 @@ function handleImageLoad(event) {
 
 function handleIntersections(entries) {
   let viewportSlotMayHaveOpened = false;
-  for (const entry of entries) {
+  // Entries that become intersecting in the same observation cycle (the
+  // common case: a page's initial scan, or a big scroll) arrive in an order
+  // the browser does not guarantee to match visual position. Sorting here
+  // makes the dispatch order top-down for that burst; analyze() below also
+  // attaches an absolute-position priority so the offscreen queue keeps
+  // top-down order even when dispatch timing doesn't.
+  const ordered = [...entries].sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+  for (const entry of ordered) {
     if (!(entry.target instanceof HTMLImageElement)) continue;
     const image = entry.target;
     if (!belongsToThisDocument(image)) {
@@ -255,6 +263,12 @@ function isVisibilityDeferredCandidate(image) {
 
 async function analyze(image) {
   if (!isAnalyzable(image)) return;
+  // Absolute document position at admission time: smaller is higher on the
+  // page. Carried through to the offscreen inference queue so images nearer
+  // the top are analyzed first even when several requests are admitted
+  // together and the network/message hops between here and there don't
+  // preserve dispatch order.
+  const priority = Math.round(image.getBoundingClientRect().top + window.scrollY);
   const id = `pm-${Date.now().toString(36)}-${(++requestSequence).toString(36)}`;
   const record = {
     id,
@@ -296,6 +310,7 @@ async function analyze(image) {
     ) => sendAnalysisWithQueueRetry(async () => {
       await activateBeforeSend();
       if (!shouldContinue()) return undefined;
+      const pageContextText = extractPageContextText(image);
       return chrome.runtime.sendMessage({
         type: MESSAGE.ANALYZE_IMAGE,
         payload: {
@@ -303,21 +318,29 @@ async function analyze(image) {
           source: record.source,
           naturalWidth: image.naturalWidth,
           naturalHeight: image.naturalHeight,
+          priority,
+          ...(pageContextText ? { pageContextText } : {}),
           ...extraPayload
         }
       });
     }, { shouldContinue });
-    // blob: and file: sources can never be fetched by the background itself
-    // -- blob: URLs are page-local, and a background context cannot reach
-    // file: at all -- so both always go straight to a canvas capture of the
+    // blob: URLs are page-local and can never be fetched by the background
+    // itself, so they always go straight to a canvas capture of the
     // already-rendered <img>. data: sources already carry their own bytes and
-    // only need the heavy-admission slot, not a capture. http(s) tries the
-    // ordinary direct fetch first, and retries once via the same capture path
+    // only need the heavy-admission slot, not a capture. http(s) AND file:
+    // try the ordinary direct fetch first (the background's fetch() can read
+    // file: URLs directly when the extension has file-URL access, even
+    // though this content script's own fetch()/XHR cannot -- verified
+    // empirically, not assumed), and retry once via the same capture path
     // only if the background could not reach the target itself (policy block
-    // or a real fetch failure) -- see isCanvasCaptureRetryable(). A capture
-    // that fails (e.g. a tainted canvas from a cross-origin image without
-    // CORS headers) throws and surfaces as a normal analysis error, exactly
-    // as an unrecoverable blob: capture failure already does today.
+    // or a real fetch failure) -- see isCanvasCaptureRetryable(). Note a
+    // canvas capture of a file: image is reliably blocked by Chrome's own
+    // "tainted canvas" rule regardless of extension permissions (verified:
+    // drawImage() succeeds silently, but toBlob()/toDataURL() throw
+    // SecurityError), so the retry can't rescue a failed file: fetch -- it's
+    // harmless to attempt and kept for code-path uniformity with http(s). A
+    // capture that fails throws and surfaces as a normal analysis error,
+    // exactly as an unrecoverable blob: capture failure already does today.
     const runCanvasCaptureAndSend = () => runWithHeavyImageAdmission(record, {
       requestId: id,
       sendControlMessage: (message) => chrome.runtime.sendMessage(message),
@@ -345,7 +368,7 @@ async function analyze(image) {
         }, activateBeforeSend),
         shouldContinue
       });
-    } else if (sourceUrl.protocol === 'blob:' || sourceUrl.protocol === 'file:') {
+    } else if (sourceUrl.protocol === 'blob:') {
       result = await runCanvasCaptureAndSend();
     } else {
       result = await sendAnalysis();
@@ -474,16 +497,37 @@ function renderAllResults() {
   schedulePositions();
 }
 
+const POSITION_SETTLE_MS = 150;
+let settleTimer;
+
+// positionBadge()'s occlusion check (readPaintedBlocker's elementsFromPoint
+// sampling) costs roughly 0.5-1ms per sample point, times up to 9 points,
+// times every visible badge -- cheap once, but re-running it on every single
+// scrolled/mutated frame during an active gallery scroll (each new image
+// admitted while scrolling also triggers a reposition) made badges visibly
+// lag behind their image and jump into place once things quietened down.
+// Every trigger now gets an immediate cheap pass (skips the occlusion check,
+// keeping badges glued to their image at scroll speed) plus a debounced full
+// pass shortly after the last trigger, so occlusion-avoidance still applies
+// once things settle without paying its cost on every frame in between.
 function schedulePositions() {
-  if (updateFrame) return;
-  updateFrame = requestAnimationFrame(() => {
-    updateFrame = undefined;
-    for (const record of records.values()) positionBadge(record);
-    if (!detailPanel.hidden) positionDetailPanel();
-  });
+  if (!updateFrame) {
+    updateFrame = requestAnimationFrame(() => {
+      updateFrame = undefined;
+      for (const record of records.values()) positionBadge(record, { skipOcclusion: true });
+      if (!detailPanel.hidden) positionDetailPanel();
+    });
+  }
+  clearTimeout(settleTimer);
+  settleTimer = setTimeout(() => {
+    settleTimer = undefined;
+    requestAnimationFrame(() => {
+      for (const record of records.values()) positionBadge(record, { skipOcclusion: false });
+    });
+  }, POSITION_SETTLE_MS);
 }
 
-function positionBadge(record) {
+function positionBadge(record, { skipOcclusion = false } = {}) {
   if (!record.image.isConnected || record.badge.hidden || !settings.enabled || !isVisibleBadgeAnchor(record.image)) {
     record.badge.style.display = 'none';
     return;
@@ -504,7 +548,10 @@ function positionBadge(record) {
     badgeHeight: record.badge.offsetHeight,
     viewportWidth: innerWidth,
     viewportHeight: innerHeight,
-    readBlocker: (candidate) => readPaintedBlocker(candidate, record.image)
+    // The cheap pass omits readBlocker entirely (findBadgePlacement's default
+    // keeps the last-good top-right placement without a single
+    // elementsFromPoint call); the debounced settle pass below restores it.
+    ...(skipOcclusion ? {} : { readBlocker: (candidate) => readPaintedBlocker(candidate, record.image) })
   }));
   if (!placement) {
     record.badge.style.display = 'none';
@@ -933,6 +980,28 @@ function redactSource(source) {
   } catch {
     return 'Embedded image';
   }
+}
+
+// Bounded, image-scoped text only: alt/title on the <img> itself, the
+// figcaption of its closest ancestor <figure> (if any), and aria-label. This
+// deliberately never walks siblings or scans the page -- a caption for a
+// different image on the page must never leak into this image's evidence.
+function extractPageContextText(image) {
+  const seen = new Set();
+  const parts = [];
+  const addPart = (value) => {
+    if (typeof value !== 'string') return;
+    const trimmed = value.trim();
+    if (!trimmed || seen.has(trimmed)) return;
+    seen.add(trimmed);
+    parts.push(trimmed);
+  };
+  addPart(image.alt);
+  addPart(image.title);
+  addPart(image.closest('figure')?.querySelector('figcaption')?.textContent);
+  addPart(image.getAttribute('aria-label'));
+  const combined = parts.join(' ').trim();
+  return combined.length > MAX_PAGE_CONTEXT_TEXT_CHARS ? combined.slice(0, MAX_PAGE_CONTEXT_TEXT_CHARS) : combined;
 }
 
 function escapeHtml(value) {

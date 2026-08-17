@@ -88,12 +88,65 @@ Chrome profile / internet-disconnected case). Not yet executed.
   the artifact from a stale `a6297c3a`-labeled filename).
 - History squashed to one clean commit before the first push (private
   planning docs and personal paths were never intended to go public -- see
-  `.gitignore`), tagged `v1.0.0`, pushed to a public GitHub repo.
+  `.gitignore`), tagged `v1.0.0`, pushed to
+  https://github.com/vcruz305/realimage.
+- GitHub Release published: https://github.com/vcruz305/realimage/releases/tag/v1.0.0
+  (assets: `realimage-v1.0.0.zip`, `SHA256SUMS.txt`).
 
-## Next 3 tasks
+## Post-v1.0.0 fixes (uncommitted, not yet released)
 
-1. Run the manual E2E checklist (`docs/MANUAL_E2E.md`) in a real installed
-   Chrome and record results.
-2. Create the GitHub Release itself (tag pushed; attach the ZIP + SHA-256
-   via the GitHub UI -- see the chat for why this step needs a human).
-3. Submit the POIDH claim only after both of the above are done.
+Found via the user's own manual E2E testing after v1.0.0, then diagnosed and
+fixed live against a real installed Chrome via CDP (see
+`docs/CLAUDE_CODE_CHROME_TESTING.md`). `npm run check` is green after each.
+Not yet committed/tagged -- awaiting a version bump and release per the
+user's call.
+
+1. **WebGPU->WASM fallback was completely broken** on machines without a
+   usable GPU adapter (`@huggingface/transformers` caches the first
+   `InferenceSession.create()` promise even on rejection, poisoning the WASM
+   fallback with the same stale WebGPU error). Fixed with a cheap
+   `hasUsableWebgpuAdapter()` preflight in `src/offscreen/offscreen.js` that
+   skips the doomed WebGPU attempt entirely before it can poison anything.
+2. **`file://` support was completely broken** via Chrome's tainted-canvas
+   rule (`canvas.toBlob()` throws `SecurityError` for a file: source,
+   independent of extension permissions). Fixed by routing `file:` through
+   the same direct background-fetch path as http(s) instead of canvas
+   capture (`src/content/index.js`, `src/offscreen/image-input.js`).
+3. **New page-caption evidence feature:** narrow declarative-phrase matching
+   (e.g. "generated using Stable Diffusion", not a bare generator name) against
+   image-adjacent DOM text (alt/title/figcaption/aria-label, capped 500
+   chars) feeds the existing (previously-dormant in production) `fuseEvidence()`
+   floor. `src/analysis/forensics.js` (`collectPageContextEvidence`),
+   `src/content/index.js` (`extractPageContextText`), wired through
+   `src/background/validation.js` and `src/offscreen/offscreen.js`.
+4. **Images now analyze top-down instead of arrival order.** Content script
+   sorts each IntersectionObserver batch by viewport position and attaches
+   an absolute-document-position `priority` to every `ANALYZE_IMAGE`
+   request; `src/offscreen/inference-queue.js`'s `SerialInferenceQueue` is
+   now a priority queue (stable for ties) so the offscreen document works
+   through whatever's currently admitted top-first, not first-arrived-first.
+   Verified live on Google Images (`udm=2` Images tab): 30 of 32 completions
+   landed in strictly top-down order.
+5. **Badge positions no longer lag/snap during scroll.** Root cause: the
+   occlusion-avoidance placement (`readPaintedBlocker`'s up to 9
+   `elementsFromPoint()` calls per badge) was re-run on every single
+   scroll-triggered frame -- measured at ~130ms for ~22 visible badges on
+   Google Images, many multiples of one frame budget, so badges visibly
+   detached from their image during a scroll and snapped into place once the
+   main thread caught up. Fixed in `src/content/index.js`: every
+   `schedulePositions()` call now does an immediate cheap pass (skips
+   occlusion, keeps the last-good top-right placement) plus a debounced
+   150ms-after-last-trigger full occlusion-aware pass. Verified live: a
+   simulated continuous scroll burst produced 571 cheap passes vs. 10 full
+   passes during the burst, with a batch of full passes correctly firing
+   once scrolling settled.
+
+## Next 2 tasks
+
+1. Commit and release the fixes above (version bump), then run the manual
+   E2E checklist (`docs/MANUAL_E2E.md`) in a real installed Chrome and
+   record results, including the offline fresh-profile case.
+2. Submit the POIDH claim only after that passes -- link the repo + release,
+   short comment (model, size, backend, unseen-generator holdout numbers,
+   real recall, file:// note). This is a manual step for the user, not
+   something to automate.

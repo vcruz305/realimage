@@ -79,12 +79,20 @@ export async function fetchEncodedImage(
   sourceUrl,
   { fetchImpl = globalThis.fetch, maxBytes = MAX_ENCODED_BYTES, timeoutMs = ACQUISITION_TIMEOUT_MS, pageUrl } = {}
 ) {
-  if (!(sourceUrl instanceof URL) || !['http:', 'https:', 'data:'].includes(sourceUrl.protocol)) {
+  if (!(sourceUrl instanceof URL) || !['http:', 'https:', 'data:', 'file:'].includes(sourceUrl.protocol)) {
     throw unavailable('UNSUPPORTED_PROTOCOL', 'This image source cannot be fetched.');
   }
   if (sourceUrl.protocol === 'http:' || sourceUrl.protocol === 'https:') {
     assertRemoteSourceAllowed(sourceUrl, pageUrl);
   }
+  // file: sources skip assertRemoteSourceAllowed entirely -- that check
+  // exists to stop an attacker-controlled PUBLIC page from reaching a
+  // local/private-network target, but a file: page can, by construction,
+  // only be opened by the user's own explicit action (never navigated to by
+  // a remote page), so there is no equivalent untrusted-origin concern here.
+  // The real security boundary for file: access is Chrome's own "Allow
+  // access to file URLs" toggle plus this extension's file:///* host
+  // permission, both already gating whether this fetch can succeed at all.
   if (typeof fetchImpl !== 'function') {
     throw unavailable('FETCH_UNAVAILABLE', 'This browser cannot fetch the image.');
   }

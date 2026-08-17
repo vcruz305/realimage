@@ -25,7 +25,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
 export const RELEASE = Object.freeze({
   name: 'RealImage',
   shortName: 'RealImage',
-  version: '0.2.4',
+  version: '1.1.0',
   status: 'shipping RealImage/broad-v1-modern-v1-1471e3ef'
 });
 

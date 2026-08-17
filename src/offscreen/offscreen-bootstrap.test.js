@@ -90,4 +90,111 @@ describe('offscreen entry bootstrap', () => {
       backends: { onnx: { wasm: { numThreads: 12 } } }
     });
   });
+
+  // Regression test for a real bug found via manual end-to-end testing:
+  // the bundled @huggingface/transformers caches the FIRST
+  // InferenceSession.create() call's promise (successful or not) to avoid
+  // double-initializing the shared ORT-web runtime. If a WebGPU session
+  // creation attempt is allowed to fail, every later session creation --
+  // including an explicit WASM fallback -- immediately re-throws that same
+  // stale error instead of trying WASM at all. offscreen.js must never
+  // attempt a WebGPU model load (device:'webgpu') when no usable adapter is
+  // present, so that failure mode can never be triggered.
+  describe('WebGPU adapter preflight', () => {
+    it('never attempts a WebGPU model load when navigator.gpu is absent, and loads WASM directly', async () => {
+      const runtime = await import('@huggingface/transformers');
+      runtime.AutoImageProcessor.from_pretrained.mockResolvedValueOnce({});
+      runtime.AutoModelForImageClassification.from_pretrained.mockResolvedValueOnce({});
+
+      await import('./offscreen.js');
+      const listener = addMessageListener.mock.calls[0][0];
+      const sendResponse = vi.fn();
+      listener({ type: MESSAGE.WARM_MODEL }, { id: chrome.runtime.id }, sendResponse);
+
+      await vi.waitFor(() => {
+        expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalled();
+      });
+      expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalledTimes(1);
+      expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalledWith(
+        expect.any(String),
+        expect.objectContaining({ device: 'wasm' })
+      );
+    });
+
+    it('never attempts a WebGPU model load when requestAdapter() rejects', async () => {
+      vi.stubGlobal('navigator', {
+        hardwareConcurrency: 20,
+        platform: 'test-platform',
+        userAgent: 'RealImage offscreen bootstrap test',
+        gpu: { requestAdapter: vi.fn().mockRejectedValue(new Error('Failed to get GPU adapter.')) }
+      });
+      const runtime = await import('@huggingface/transformers');
+      runtime.AutoImageProcessor.from_pretrained.mockResolvedValueOnce({});
+      runtime.AutoModelForImageClassification.from_pretrained.mockResolvedValueOnce({});
+
+      await import('./offscreen.js');
+      const listener = addMessageListener.mock.calls[0][0];
+      listener({ type: MESSAGE.WARM_MODEL }, { id: chrome.runtime.id }, vi.fn());
+
+      await vi.waitFor(() => {
+        expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalled();
+      });
+      expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalledTimes(1);
+      expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalledWith(
+        expect.any(String),
+        expect.objectContaining({ device: 'wasm' })
+      );
+    });
+
+    it('never attempts a WebGPU model load when requestAdapter() resolves null', async () => {
+      vi.stubGlobal('navigator', {
+        hardwareConcurrency: 20,
+        platform: 'test-platform',
+        userAgent: 'RealImage offscreen bootstrap test',
+        gpu: { requestAdapter: vi.fn().mockResolvedValue(null) }
+      });
+      const runtime = await import('@huggingface/transformers');
+      runtime.AutoImageProcessor.from_pretrained.mockResolvedValueOnce({});
+      runtime.AutoModelForImageClassification.from_pretrained.mockResolvedValueOnce({});
+
+      await import('./offscreen.js');
+      const listener = addMessageListener.mock.calls[0][0];
+      listener({ type: MESSAGE.WARM_MODEL }, { id: chrome.runtime.id }, vi.fn());
+
+      await vi.waitFor(() => {
+        expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalled();
+      });
+      expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalledWith(
+        expect.any(String),
+        expect.objectContaining({ device: 'wasm' })
+      );
+    });
+
+    it('does attempt a WebGPU model load when a usable adapter is present', async () => {
+      vi.stubGlobal('navigator', {
+        hardwareConcurrency: 20,
+        platform: 'test-platform',
+        userAgent: 'RealImage offscreen bootstrap test',
+        gpu: { requestAdapter: vi.fn().mockResolvedValue({ features: [] }) }
+      });
+      const runtime = await import('@huggingface/transformers');
+      runtime.AutoImageProcessor.from_pretrained.mockResolvedValueOnce({});
+      // First call is the WebGPU self-test probe; let it hang so the test can
+      // observe that it was attempted without needing a full self-test image
+      // pipeline (RawImage.fromBlob isn't wired up for this mock).
+      runtime.AutoModelForImageClassification.from_pretrained.mockImplementationOnce(() => new Promise(() => {}));
+
+      await import('./offscreen.js');
+      const listener = addMessageListener.mock.calls[0][0];
+      listener({ type: MESSAGE.WARM_MODEL }, { id: chrome.runtime.id }, vi.fn());
+
+      await vi.waitFor(() => {
+        expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalled();
+      });
+      expect(runtime.AutoModelForImageClassification.from_pretrained).toHaveBeenCalledWith(
+        expect.any(String),
+        expect.objectContaining({ device: 'webgpu' })
+      );
+    });
+  });
 });

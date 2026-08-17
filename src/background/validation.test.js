@@ -217,6 +217,98 @@ describe('background request validation', () => {
     }
   });
 
+  it('passes a short valid pageContextText through, trimmed', () => {
+    const result = sanitizeAnalyzePayload({
+      requestId: 'pm-context-1',
+      source: 'https://images.example.test/image.png',
+      naturalWidth: 800,
+      naturalHeight: 600,
+      pageContextText: '  AI-generated artwork by a talented model  '
+    }, sender, extensionId);
+    expect(result.pageContextText).toBe('AI-generated artwork by a talented model');
+  });
+
+  it('omits pageContextText entirely when absent, without error', () => {
+    const result = sanitizeAnalyzePayload({
+      requestId: 'pm-context-2',
+      source: 'https://images.example.test/image.png',
+      naturalWidth: 800,
+      naturalHeight: 600
+    }, sender, extensionId);
+    expect(result).not.toHaveProperty('pageContextText');
+  });
+
+  it('omits pageContextText when it is only whitespace', () => {
+    const result = sanitizeAnalyzePayload({
+      requestId: 'pm-context-3',
+      source: 'https://images.example.test/image.png',
+      naturalWidth: 800,
+      naturalHeight: 600,
+      pageContextText: '   \n\t  '
+    }, sender, extensionId);
+    expect(result).not.toHaveProperty('pageContextText');
+  });
+
+  it('truncates an overlong pageContextText to 500 characters instead of rejecting it', () => {
+    const huge = 'a'.repeat(5_000);
+    const result = sanitizeAnalyzePayload({
+      requestId: 'pm-context-4',
+      source: 'https://images.example.test/image.png',
+      naturalWidth: 800,
+      naturalHeight: 600,
+      pageContextText: huge
+    }, sender, extensionId);
+    expect(result.pageContextText).toHaveLength(500);
+    expect(result.pageContextText).toBe('a'.repeat(500));
+  });
+
+  it('drops a non-string pageContextText instead of crashing validation', () => {
+    for (const badValue of [12345, { alt: 'AI-generated' }, ['AI-generated'], true]) {
+      const result = sanitizeAnalyzePayload({
+        requestId: 'pm-context-5',
+        source: 'https://images.example.test/image.png',
+        naturalWidth: 800,
+        naturalHeight: 600,
+        pageContextText: badValue
+      }, sender, extensionId);
+      expect(result).not.toHaveProperty('pageContextText');
+    }
+  });
+
+  it('passes a finite numeric priority through unchanged', () => {
+    const result = sanitizeAnalyzePayload({
+      requestId: 'pm-priority-1',
+      source: 'https://images.example.test/image.png',
+      naturalWidth: 800,
+      naturalHeight: 600,
+      priority: 1234
+    }, sender, extensionId);
+    expect(result.priority).toBe(1234);
+  });
+
+  it('omits priority entirely when absent, without error', () => {
+    const result = sanitizeAnalyzePayload({
+      requestId: 'pm-priority-2',
+      source: 'https://images.example.test/image.png',
+      naturalWidth: 800,
+      naturalHeight: 600
+    }, sender, extensionId);
+    expect(result).not.toHaveProperty('priority');
+  });
+
+  it('drops a non-finite or non-numeric priority instead of crashing validation', () => {
+    for (const badValue of ['top', NaN, Infinity, { top: 0 }, [0], null]) {
+      const result = sanitizeAnalyzePayload({
+        requestId: 'pm-priority-3',
+        source: 'https://images.example.test/image.png',
+        naturalWidth: 800,
+        naturalHeight: 600,
+        priority: badValue
+      }, sender, extensionId);
+      expect(result).not.toHaveProperty('priority');
+    }
+  });
+
   it('serializes terminal unavailable errors without a score', () => {
     const response = toUnavailableResponse(Object.assign(new Error('blocked'), { code: 'PRIVATE_TARGET_BLOCKED' }), 'pm-1');
     expect(response).toMatchObject({ ok: false, unavailable: true, code: 'PRIVATE_TARGET_BLOCKED', requestId: 'pm-1' });

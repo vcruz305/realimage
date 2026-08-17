@@ -1,6 +1,6 @@
 import { MESSAGE, MODEL, RELEASE } from '../shared/constants.js';
 import { createCalibrationDebugRelay } from '../shared/calibration-debug-relay.js';
-import { calibrateDecisionScore, inspectEncodedImage } from '../analysis/forensics.js';
+import { calibrateDecisionScore, collectPageContextEvidence, fuseEvidence, inspectEncodedImage } from '../analysis/forensics.js';
 import { acquireImageInput } from './image-input.js';
 import { SerialInferenceQueue } from './inference-queue.js';
 import { extractModelLogit } from './model-output.js';
@@ -37,7 +37,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === MESSAGE.OFFSCREEN_ANALYZE) {
     if (!isTrustedOffscreenInternalSender(sender, chrome.runtime.id)) return false;
     const requestId = typeof message.payload?.requestId === 'string' ? message.payload.requestId : undefined;
-    inferenceQueue.run(() => analyzeImage(message.payload)).then(sendResponse).catch((error) => {
+    inferenceQueue.run(() => analyzeImage(message.payload), message.payload?.priority).then(sendResponse).catch((error) => {
       sendResponse(createUnavailableResponse(error, requestId, humanizeError));
     });
     return true;
@@ -104,6 +104,24 @@ async function loadDetector() {
 }
 
 async function probeWebgpuBackend({ AutoModelForImageClassification, RawImage, processor }) {
+  // Bundled @huggingface/transformers (createInferenceSession) caches the
+  // FIRST InferenceSession.create() call's promise in a module-level
+  // wasmInitPromise to avoid double-initializing the shared ORT-web
+  // runtime -- but it caches that promise even when it rejects. If the
+  // WebGPU attempt below were allowed to fail inside a real session
+  // creation call, every later session creation (including the WASM
+  // fallback in loadDetector()) would immediately re-throw that same
+  // stale WebGPU error instead of attempting WASM at all. A cheap, direct
+  // adapter check here — with no ONNX Runtime session creation involved —
+  // lets a missing/broken GPU adapter (the overwhelmingly common WebGPU
+  // failure mode) skip the doomed attempt entirely, so it can never poison
+  // that shared promise. This does not fully eliminate the underlying
+  // library bug (a WebGPU session that fails for some other reason after
+  // the adapter check passes would still poison the WASM fallback), but it
+  // closes the failure mode this project has actually observed.
+  if (!(await hasUsableWebgpuAdapter())) {
+    return { outcome: { ok: false }, model: undefined };
+  }
   try {
     const model = await withTimeout(
       AutoModelForImageClassification.from_pretrained(MODEL.id, { dtype: MODEL.dtype, device: 'webgpu' }),
@@ -118,6 +136,16 @@ async function probeWebgpuBackend({ AutoModelForImageClassification, RawImage, p
     // (checked by selectBackendPlan), or a timeout — falls back to the WASM
     // path below and never surfaces as an analysis error.
     return { outcome: { ok: false }, model: undefined };
+  }
+}
+
+async function hasUsableWebgpuAdapter() {
+  if (!navigator.gpu) return false;
+  try {
+    const adapter = await navigator.gpu.requestAdapter();
+    return Boolean(adapter);
+  } catch {
+    return false;
   }
 }
 
@@ -137,7 +165,7 @@ function withTimeout(promise, timeoutMs) {
   });
 }
 
-async function analyzeImage({ source, fallbackDataUrl, requestId, pageUrl }) {
+async function analyzeImage({ source, fallbackDataUrl, requestId, pageUrl, pageContextText }) {
   const startedAt = performance.now();
   const transformersRuntimeTask = getTransformersRuntime();
   const detectorTask = getDetector();
@@ -161,9 +189,24 @@ async function analyzeImage({ source, fallbackDataUrl, requestId, pageUrl }) {
   const modelLogit = extractModelLogit(output);
   const modelAiScore = sigmoid(modelLogit);
   const encoded = inspectEncodedImage(buffer, encodedInput.mimeType);
-  // Candidate qualification is deliberately model-only. Encoded evidence is
-  // still surfaced for explanation, but it cannot alter the decision score.
-  const uncalibratedScore = modelAiScore;
+  // Candidate qualification is deliberately model-only. Embedded file-metadata
+  // evidence (encoded.evidence) is still surfaced for explanation, but it does
+  // not alter the decision score -- this file's own dormant fuseEvidence()
+  // export exists and is exercised in tests/benchmarking, but is intentionally
+  // not called against encoded.evidence here.
+  //
+  // Page-adjacent caption text is different: it is a new, narrow, explicit
+  // declarative signal (see collectPageContextEvidence -- a bare generator
+  // name is not enough, an explicit generation verb is required) that the
+  // model demonstrably misses on real search-result captions. It reuses the
+  // same fuseEvidence() floor (score >= 0.985 once matched) rather than a
+  // second scoring mechanism, but is applied narrowly to only this new
+  // evidence source so the existing model-only policy for file metadata is
+  // left exactly as it was.
+  const pageContextEvidence = collectPageContextEvidence(pageContextText);
+  const uncalibratedScore = pageContextEvidence.length > 0
+    ? fuseEvidence(modelAiScore, { evidence: pageContextEvidence })
+    : modelAiScore;
   const score = calibrateDecisionScore(
     uncalibratedScore,
     MODEL.calibration.rawThreshold,
@@ -224,7 +267,7 @@ async function analyzeImage({ source, fallbackDataUrl, requestId, pageUrl }) {
     runtime: modelState.runtime,
     format: encoded.format,
     dimensions: { width: rawImage.width, height: rawImage.height },
-    evidence: [...encoded.evidence, ...encoded.watermarks, ...encoded.provenance],
+    evidence: [...encoded.evidence, ...encoded.watermarks, ...encoded.provenance, ...pageContextEvidence],
     watermarks: encoded.watermarks,
     provenance: encoded.provenance,
     timings,

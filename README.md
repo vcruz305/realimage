@@ -5,7 +5,7 @@ locally, in your browser, as you browse. It runs a bundled ONNX vision model
 on-device, shows a confidence score on top of each image, and can blur, hide,
 or label images that cross the AI line. There is no inference server, no API
 key, no telemetry, and no upload path — the model and runtime ship inside the
-extension.
+extension, and no network request is made for analysis, ever.
 
 ## What it does
 
@@ -16,6 +16,36 @@ it, an image is treated as likely AI-generated (default behavior: blur it).
 Metadata (C2PA, IPTC digital-source-type declarations, generator strings in
 PNG/JPEG chunks) is surfaced as extra context in the detail view but never
 changes the model's decision.
+
+## Features
+
+- **Fully local inference.** The ~87 MB model and the ONNX runtime ship
+  inside the extension; nothing is uploaded, and the build itself fails
+  loudly if it would need to reach the network for a model file.
+- **WebGPU with a verified WASM fallback.** Each offscreen document tries
+  WebGPU first, checked against a stored reference logit; on a missing
+  adapter, load failure, or self-test mismatch it falls back to
+  multi-threaded WebAssembly automatically — including on machines with no
+  usable GPU, which previously could fail outright (see Origins below).
+- **Works on `http(s)`, `file://`, and local-network pages**, not just
+  public websites — useful for checking images before you ever post them.
+- **Blur, hide, or label** images that cross the line, adjustable per-page
+  from the popup with no reload required.
+- **Declared-AI detection.** High-confidence embedded declarations (C2PA,
+  IPTC digital-source-type, Google's AI metadata) surface as a distinct
+  "Declared AI-generated" badge, shown alongside the model's own score.
+- **Page-caption evidence.** When a page's own caption or alt text
+  explicitly declares an image AI-generated (e.g. "Generated using Stable
+  Diffusion") but the model alone would score it low, that declaration is
+  factored in — narrow phrase matching only, never a bare mention of a
+  generator's name, to avoid false positives on pages that are merely
+  discussing AI images.
+- **Top-down scanning.** Images are analyzed in the order they appear on
+  the page, starting from the top, rather than in arbitrary arrival order.
+- **Live popup.** The popup keeps updating while a page is still being
+  scanned, instead of freezing at whatever it saw the instant it opened.
+- **Backend readiness check.** The Options page reports which backend is
+  active (WebGPU or WASM) and the thread count once the model is warm.
 
 ## Build
 
@@ -94,10 +124,30 @@ commit `ef986acb51c9ed6768d512bfc76174070940458b`. Since then it has:
 - retrained the classifier head from scratch on a public-only, 21-source,
   4,650-image, multi-generator corpus with a leakage-corrected,
   source-disjoint holdout (see `MODEL_CARD.md`);
-- added a WebGPU inference path with a self-test-verified WASM fallback;
-- added `file://` and local-network page support (with a same-origin
-  private-network fetch policy that still blocks a public page from
-  reaching loopback/private-network image targets);
+- added a WebGPU inference path with a self-test-verified WASM fallback,
+  then fixed a real bug in that fallback: the bundled ONNX runtime caches
+  its first session-creation attempt even on failure, so a machine with no
+  usable GPU adapter could poison the WASM fallback with the same stale
+  WebGPU error and fail outright. A cheap adapter preflight now skips the
+  doomed WebGPU attempt entirely on such machines instead of triggering it;
+- added `file://` and local-network page support, then fixed a real bug
+  there too: Chrome's tainted-canvas rule blocks reading pixels back out of
+  a `file://` image via canvas, independent of extension permissions, so
+  local images always failed. `file://` sources now go through the same
+  direct background-fetch path as `http(s)` instead of a canvas capture
+  (with a same-origin private-network fetch policy that still blocks a
+  public page from reaching loopback/private-network image targets);
+- added narrow, page-caption-based declarative evidence (distinct from the
+  file-metadata evidence system, which remains display-only and never
+  changes the decision score) for the case where a page's own caption
+  explicitly declares an image AI-generated but the model alone misses it;
+- made image analysis order top-down instead of arrival order, and fixed a
+  scroll-performance bug where badge placement's occlusion-avoidance check
+  (up to 9 hit-tests per badge) re-ran on every scrolled frame, causing
+  badges to visibly lag behind their image and snap into place once
+  scrolling stopped;
+- made the popup update live while a page keeps scanning, instead of
+  freezing at whatever it saw the instant it was opened;
 - removed a Facebook-linked-original fetch path that spoofed a User-Agent
   via `declarativeNetRequest`;
 - fixed a ghost-badge bug on images that go hidden before analysis starts;

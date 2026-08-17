@@ -9,6 +9,7 @@ import {
 } from '../offscreen/source-policy.js';
 
 const MAX_REQUEST_ID_CHARS = 128;
+const MAX_PAGE_CONTEXT_TEXT_CHARS = 500;
 
 export function isTrustedExtensionSender(sender, extensionId) {
   return Boolean(extensionId && sender && sender.id === extensionId);
@@ -40,6 +41,8 @@ export function sanitizeAnalyzePayload(payload, sender, extensionId) {
 
   const sourceUrl = parseImageSource(source);
   const fallbackDataUrl = validateFallbackDataUrl(payload.fallbackDataUrl, sourceUrl, pageUrl);
+  const pageContextText = validatePageContextText(payload.pageContextText);
+  const priority = validatePriority(payload.priority);
 
   return {
     requestId,
@@ -49,7 +52,9 @@ export function sanitizeAnalyzePayload(payload, sender, extensionId) {
     naturalHeight,
     // Never accept a pageUrl claimed by the content payload. This value comes
     // only from Chrome's MessageSender and is used for localhost policy checks.
-    pageUrl
+    pageUrl,
+    ...(pageContextText ? { pageContextText } : {}),
+    ...(priority !== undefined ? { priority } : {})
   };
 }
 
@@ -137,6 +142,24 @@ function validateFallbackDataUrl(value, sourceUrl, pageUrl) {
     throw unavailable('UNEXPECTED_FALLBACK', 'Fallback image bytes are accepted only for blob, file, or HTTP(S) sources.');
   }
   return undefined;
+}
+
+// Optional, page-authored, and bounded: a hostile page sending a huge or
+// wrong-typed value is silently truncated/dropped rather than rejected, since
+// this field only ever feeds a display/evidence signal, never a decision by
+// itself, and the whole analysis request should not fail over it.
+function validatePageContextText(value) {
+  if (typeof value !== 'string') return undefined;
+  const trimmed = value.trim();
+  if (!trimmed) return undefined;
+  return trimmed.length > MAX_PAGE_CONTEXT_TEXT_CHARS ? trimmed.slice(0, MAX_PAGE_CONTEXT_TEXT_CHARS) : trimmed;
+}
+
+// A scheduling hint only, never a decision input: a hostile or malformed
+// value just loses its priority (falls back to the offscreen queue's
+// last-in-line default) rather than failing the whole analysis request.
+function validatePriority(value) {
+  return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
 }
 
 function unavailable(code, message) {

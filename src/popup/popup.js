@@ -4,6 +4,8 @@ import { MESSAGE } from '../shared/constants.js';
 import { formatScorePercent } from '../shared/score-display.js';
 import { getSettings, saveSettings } from '../shared/settings.js';
 
+const POLL_INTERVAL_MS = 750;
+
 const elements = Object.fromEntries([...document.querySelectorAll('[id]')].map((element) => [element.id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), element]));
 let activeTab;
 let settings = await getSettings();
@@ -16,6 +18,12 @@ try {
   [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
   elements.siteName.textContent = getSiteLabel(activeTab?.url);
   await refresh();
+  // The page keeps scanning after the popup opens (a page can have many
+  // images and each one takes real time to analyze); without this, the
+  // popup shows only the snapshot from the instant it opened and never
+  // catches up, even while the page's own badges keep completing behind it.
+  const pollTimer = setInterval(refresh, POLL_INTERVAL_MS);
+  window.addEventListener('pagehide', () => clearInterval(pollTimer));
 } catch {
   showUnavailable();
 }

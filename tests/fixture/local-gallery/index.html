@@ -17,14 +17,17 @@
   <body>
     <main>
       <h1>RealImage local gallery fixture</h1>
-      <p>Six local images, all loaded with relative paths (no external URLs). Used to manually verify the
-        <code>file://</code> support fix -- see <code>docs/MANUAL_E2E.md</code>.</p>
+      <p>Six local images, all loaded with relative paths (no external URLs), all in a
+        model-supported raster format (PNG -- SVG is intentionally rejected by the
+        detector as an unsupported format, the same as it would be on any website, so
+        it is not used here). Used to manually verify the <code>file://</code> support
+        fix -- see <code>docs/MANUAL_E2E.md</code>.</p>
       <div class="gallery">
-        <figure><img src="../generator-marked.svg" alt="Stylized gradient landscape fixture with embedded generator metadata"><figcaption>generator-marked.svg</figcaption></figure>
-        <figure><img src="../synthetic-a.svg" alt="Abstract saturated dusk scene fixture"><figcaption>synthetic-a.svg</figcaption></figure>
-        <figure><img src="../synthetic-b.svg" alt="Abstract radial glow fixture"><figcaption>synthetic-b.svg</figcaption></figure>
-        <figure><img src="../unmarked.svg" alt="Simple unmarked landscape fixture"><figcaption>unmarked.svg</figcaption></figure>
-        <figure><img src="../plain-scene.svg" alt="Muted overcast skyline fixture"><figcaption>plain-scene.svg</figcaption></figure>
+        <figure><img src="../generator-marked.png" alt="Stylized gradient landscape fixture with embedded generator metadata"><figcaption>generator-marked.png</figcaption></figure>
+        <figure><img src="../synthetic-a.png" alt="Abstract saturated dusk scene fixture"><figcaption>synthetic-a.png</figcaption></figure>
+        <figure><img src="../synthetic-b.png" alt="Abstract radial glow fixture"><figcaption>synthetic-b.png</figcaption></figure>
+        <figure><img src="../unmarked.png" alt="Simple unmarked landscape fixture"><figcaption>unmarked.png</figcaption></figure>
+        <figure><img src="../plain-scene.png" alt="Muted overcast skyline fixture"><figcaption>plain-scene.png</figcaption></figure>
         <figure><img src="../../../icons/realimage-master.png" alt="RealImage extension icon artwork"><figcaption>realimage-master.png</figcaption></figure>
       </div>
     </main>

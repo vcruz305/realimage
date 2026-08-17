@@ -57,6 +57,38 @@ describe('SerialInferenceQueue', () => {
     await expect(Promise.all([first, second])).resolves.toEqual(['first', 'second']);
   });
 
+  it('runs queued tasks in priority order (lowest first), not arrival order', async () => {
+    const queue = new SerialInferenceQueue({ maxQueued: 3 });
+    const order = [];
+    let release;
+    const first = queue.run(() => new Promise((resolve) => { release = resolve; }), 0);
+    await vi.waitFor(() => expect(queue.active).toBe(1));
+
+    // Arrive out of top-down order; the queue should still drain top-down.
+    const third = queue.run(async () => { order.push('third'); }, 300);
+    const second = queue.run(async () => { order.push('second'); }, 100);
+    const fourth = queue.run(async () => { order.push('fourth'); }, 400);
+
+    release();
+    await Promise.all([first, second, third, fourth]);
+    expect(order).toEqual(['second', 'third', 'fourth']);
+  });
+
+  it('keeps arrival order among equal (or missing) priorities', async () => {
+    const queue = new SerialInferenceQueue({ maxQueued: 3 });
+    const order = [];
+    let release;
+    const first = queue.run(() => new Promise((resolve) => { release = resolve; }));
+    await vi.waitFor(() => expect(queue.active).toBe(1));
+
+    const second = queue.run(async () => { order.push('second'); });
+    const third = queue.run(async () => { order.push('third'); });
+
+    release();
+    await Promise.all([first, second, third]);
+    expect(order).toEqual(['second', 'third']);
+  });
+
   it('continues after a failed task', async () => {
     const queue = new SerialInferenceQueue({ maxQueued: 1 });
     const failed = queue.run(async () => { throw new Error('model failure'); });
