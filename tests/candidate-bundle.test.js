@@ -49,7 +49,7 @@ describe('frozen FP32 Chrome-calibration candidate', () => {
     // cleaned up to drop the internal candidate-id jargon.
     expect(RELEASE).toEqual(expect.objectContaining({
       name: 'RealImage',
-      version: '0.2.4'
+      version: '1.1.0'
     }));
     expect(MODEL).toEqual(expect.objectContaining({
       id: 'RealImage/broad-v1-modern-v1-1471e3ef',
